@@ -1,6 +1,7 @@
 package mongodb_test;
 
 import com.mongodb.BasicDBObject;
+import com.mongodb.Block;
 import com.mongodb.MongoClient;
 import com.mongodb.MongoClientURI;
 import com.mongodb.client.FindIterable;
@@ -11,8 +12,11 @@ import java.rmi.UnknownHostException;
 import java.util.Iterator;
 import java.util.Scanner;
 import javax.swing.ComboBoxModel;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JDialog;
 import javax.swing.JOptionPane;
 import static javax.swing.JOptionPane.YES_NO_OPTION;
+import javax.swing.table.DefaultTableModel;
 import org.bson.Document;
 
 /*
@@ -144,7 +148,7 @@ public class ParteMario extends javax.swing.JFrame {
         jb_BuscarDependencia = new javax.swing.JButton();
         jb_ModDepencia = new javax.swing.JButton();
         jd_Empleados = new javax.swing.JDialog();
-        jTabbedPane1 = new javax.swing.JTabbedPane();
+        jtab_empleados = new javax.swing.JTabbedPane();
         jPanel13 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -191,6 +195,9 @@ public class ParteMario extends javax.swing.JFrame {
         tf_porcion = new javax.swing.JTextField();
         jLabel21 = new javax.swing.JLabel();
         tf_codDieta = new javax.swing.JTextField();
+        jPanel18 = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tb_listarEmpleados = new javax.swing.JTable();
         jd_ventanaasignacion = new javax.swing.JDialog();
         jPanel17 = new javax.swing.JPanel();
         jb_asignamantenimiento = new javax.swing.JButton();
@@ -202,6 +209,122 @@ public class ParteMario extends javax.swing.JFrame {
         jLabel24 = new javax.swing.JLabel();
         jLabel25 = new javax.swing.JLabel();
         cb_personalmantenimientoasignar = new javax.swing.JComboBox<>();
+        jd_animales = new javax.swing.JDialog();
+        jTabbedPane1 = new javax.swing.JTabbedPane();
+        jPanel19 = new javax.swing.JPanel();
+        jLabel26 = new javax.swing.JLabel();
+        jLabel27 = new javax.swing.JLabel();
+        jLabel28 = new javax.swing.JLabel();
+        tf_addAnimal_nombre = new javax.swing.JTextField();
+        jLabel29 = new javax.swing.JLabel();
+        tf_addAnimal_codigo = new javax.swing.JTextField();
+        jLabel30 = new javax.swing.JLabel();
+        cb_addAnimal_continente = new javax.swing.JComboBox<>();
+        jLabel31 = new javax.swing.JLabel();
+        jLabel32 = new javax.swing.JLabel();
+        rb_addAnimal_si = new javax.swing.JRadioButton();
+        rb_addAnimal_no = new javax.swing.JRadioButton();
+        jLabel33 = new javax.swing.JLabel();
+        sp_addAnimal_edad = new javax.swing.JSpinner();
+        jLabel34 = new javax.swing.JLabel();
+        tf_addAnimal_madre = new javax.swing.JTextField();
+        jLabel35 = new javax.swing.JLabel();
+        tf_addAnimal_padre = new javax.swing.JTextField();
+        jLabel36 = new javax.swing.JLabel();
+        tf_addAnimal_veterinario = new javax.swing.JTextField();
+        addAnimal = new javax.swing.JButton();
+        cb_addAnimal_especie = new javax.swing.JComboBox<>();
+        cb_addAnimal_subEspecie = new javax.swing.JComboBox<>();
+        tf_addAnimal_pais = new javax.swing.JTextField();
+        jPanel20 = new javax.swing.JPanel();
+        jTabbedPane2 = new javax.swing.JTabbedPane();
+        jPanel21 = new javax.swing.JPanel();
+        jLabel38 = new javax.swing.JLabel();
+        bt_buscarAnimal = new javax.swing.JButton();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        tb_buscarAnimal = new javax.swing.JTable();
+        cb_buscarAnimal1_especie = new javax.swing.JComboBox<>();
+        jLabel37 = new javax.swing.JLabel();
+        cb_buscarAnimal1_subespecie = new javax.swing.JComboBox<>();
+        jButton6 = new javax.swing.JButton();
+        jPanel22 = new javax.swing.JPanel();
+        jLabel39 = new javax.swing.JLabel();
+        tf_buscarAnimal_codigo = new javax.swing.JTextField();
+        jLabel40 = new javax.swing.JLabel();
+        tf_buscarAnimal_especie = new javax.swing.JTextField();
+        jLabel41 = new javax.swing.JLabel();
+        tf_buscarAnimal_nombre = new javax.swing.JTextField();
+        jLabel42 = new javax.swing.JLabel();
+        jLabel43 = new javax.swing.JLabel();
+        tf_buscarAnimal_madre = new javax.swing.JTextField();
+        jLabel44 = new javax.swing.JLabel();
+        tf_buscarAnimal_veterinario = new javax.swing.JTextField();
+        jLabel45 = new javax.swing.JLabel();
+        sp_buscarAnimal_edad = new javax.swing.JSpinner();
+        jLabel46 = new javax.swing.JLabel();
+        tf_buscarAnimal_padre = new javax.swing.JTextField();
+        rb_buscarAnimal_no = new javax.swing.JRadioButton();
+        rb_buscarAnimal_si = new javax.swing.JRadioButton();
+        jLabel47 = new javax.swing.JLabel();
+        jLabel48 = new javax.swing.JLabel();
+        tf_buscarAnimal_subespecie = new javax.swing.JTextField();
+        cb_buscarAnimal_continente = new javax.swing.JComboBox<>();
+        jLabel49 = new javax.swing.JLabel();
+        jButton9 = new javax.swing.JButton();
+        bt_EliminarAnimal = new javax.swing.JButton();
+        bt_buscarAnimal2 = new javax.swing.JButton();
+        tf_buscarAnimal_pais = new javax.swing.JTextField();
+        jPanel23 = new javax.swing.JPanel();
+        jTabbedPane3 = new javax.swing.JTabbedPane();
+        jPanel24 = new javax.swing.JPanel();
+        jSeparator1 = new javax.swing.JSeparator();
+        jLabel50 = new javax.swing.JLabel();
+        jLabel51 = new javax.swing.JLabel();
+        jLabel52 = new javax.swing.JLabel();
+        tf_agregarEspecie_codEspecie = new javax.swing.JTextField();
+        jLabel53 = new javax.swing.JLabel();
+        tf_agregarEspecie_nombreEspecie = new javax.swing.JTextField();
+        jLabel54 = new javax.swing.JLabel();
+        cb_agregarEspecie_codEspecie = new javax.swing.JComboBox<>();
+        jLabel55 = new javax.swing.JLabel();
+        tf_agregarEspecie_codSubEspecie = new javax.swing.JTextField();
+        jLabel56 = new javax.swing.JLabel();
+        tf_agregarEspecie_nombreSubEspecie = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jPanel25 = new javax.swing.JPanel();
+        jButton3 = new javax.swing.JButton();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        tb_especies = new javax.swing.JTable();
+        jButton4 = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
+        lb_especies = new javax.swing.JLabel();
+        jPanel26 = new javax.swing.JPanel();
+        jTabbedPane4 = new javax.swing.JTabbedPane();
+        jPanel27 = new javax.swing.JPanel();
+        jLabel57 = new javax.swing.JLabel();
+        cb_enfermedad_codigoAnimal = new javax.swing.JComboBox<>();
+        jLabel58 = new javax.swing.JLabel();
+        lb_enfermedad_nombre = new javax.swing.JLabel();
+        jLabel59 = new javax.swing.JLabel();
+        tf_enfermedad = new javax.swing.JTextField();
+        jLabel60 = new javax.swing.JLabel();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        ta_enfermedad_tratamiento = new javax.swing.JTextArea();
+        jLabel61 = new javax.swing.JLabel();
+        cb_enfermedad_estado = new javax.swing.JComboBox<>();
+        jButton7 = new javax.swing.JButton();
+        jPanel28 = new javax.swing.JPanel();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        tb_enfermedades = new javax.swing.JTable();
+        jPanel29 = new javax.swing.JPanel();
+        jLabel62 = new javax.swing.JLabel();
+        cb_animal = new javax.swing.JComboBox<>();
+        jLabel63 = new javax.swing.JLabel();
+        lb_animal = new javax.swing.JLabel();
+        jScrollPane7 = new javax.swing.JScrollPane();
+        tb_descendientes = new javax.swing.JTable();
+        jLabel64 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         bt_entrarPersonal = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
@@ -1006,6 +1129,12 @@ public class ParteMario extends javax.swing.JFrame {
             .addComponent(jPanel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
+        jtab_empleados.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jtab_empleadosStateChanged(evt);
+            }
+        });
+
         jLabel5.setText("Codigo del empleado:");
 
         jLabel6.setText("Primer nombre:");
@@ -1095,10 +1224,10 @@ public class ParteMario extends javax.swing.JFrame {
                         .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel10)
                             .addComponent(jt_cargoAgregarEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(49, Short.MAX_VALUE))
+                .addContainerGap(112, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("Agregar Empleados", jPanel13);
+        jtab_empleados.addTab("Agregar Empleados", jPanel13);
 
         jLabel11.setText("Codigo del empleado:");
 
@@ -1164,7 +1293,7 @@ public class ParteMario extends javax.swing.JFrame {
                         .addComponent(jt_cargoModificarEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(bt_modificarEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 89, Short.MAX_VALUE)
+                    .addComponent(bt_modificarEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 101, Short.MAX_VALUE)
                     .addComponent(bt_buscarModificarEmpleado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -1202,7 +1331,7 @@ public class ParteMario extends javax.swing.JFrame {
                 .addGap(25, 25, 25))
         );
 
-        jTabbedPane1.addTab("Modificar Empleados", jPanel14);
+        jtab_empleados.addTab("Modificar Empleados", jPanel14);
 
         bt_eliminarEmpleados.setText("Eliminar");
         bt_eliminarEmpleados.addActionListener(new java.awt.event.ActionListener() {
@@ -1219,7 +1348,7 @@ public class ParteMario extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel15Layout.createSequentialGroup()
-                        .addGap(0, 287, Short.MAX_VALUE)
+                        .addGap(0, 299, Short.MAX_VALUE)
                         .addComponent(bt_eliminarEmpleados, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(cb_eliminarEmpleados, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
@@ -1229,12 +1358,12 @@ public class ParteMario extends javax.swing.JFrame {
             .addGroup(jPanel15Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(cb_eliminarEmpleados, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 176, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 239, Short.MAX_VALUE)
                 .addComponent(bt_eliminarEmpleados, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
-        jTabbedPane1.addTab("Eliminar Empleados", jPanel15);
+        jtab_empleados.addTab("Eliminar Empleados", jPanel15);
 
         cb_animales.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1295,7 +1424,7 @@ public class ParteMario extends javax.swing.JFrame {
                                 .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(cb_animales, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel19))
-                                .addGap(0, 57, Short.MAX_VALUE))))
+                                .addGap(0, 69, Short.MAX_VALUE))))
                     .addGroup(jPanel16Layout.createSequentialGroup()
                         .addComponent(jLabel20)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -1320,7 +1449,7 @@ public class ParteMario extends javax.swing.JFrame {
                     .addComponent(cb_veterinarios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cb_dosis, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cb_animales, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 69, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 132, Short.MAX_VALUE)
                 .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel20)
                     .addComponent(tf_porcion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1333,17 +1462,60 @@ public class ParteMario extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jTabbedPane1.addTab("Dietas", jPanel16);
+        jtab_empleados.addTab("Dietas", jPanel16);
+
+        tb_listarEmpleados.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Codigo Empleado", "Primer nombre", "Segundo nombre", "Primer Apellido", "Segundo Apellido", "Cargo"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane2.setViewportView(tb_listarEmpleados);
+
+        javax.swing.GroupLayout jPanel18Layout = new javax.swing.GroupLayout(jPanel18);
+        jPanel18.setLayout(jPanel18Layout);
+        jPanel18Layout.setHorizontalGroup(
+            jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel18Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 429, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel18Layout.setVerticalGroup(
+            jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel18Layout.createSequentialGroup()
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 313, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+
+        jtab_empleados.addTab("Listar empleados", jPanel18);
 
         javax.swing.GroupLayout jd_EmpleadosLayout = new javax.swing.GroupLayout(jd_Empleados.getContentPane());
         jd_Empleados.getContentPane().setLayout(jd_EmpleadosLayout);
         jd_EmpleadosLayout.setHorizontalGroup(
             jd_EmpleadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1)
+            .addComponent(jtab_empleados)
         );
         jd_EmpleadosLayout.setVerticalGroup(
             jd_EmpleadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1)
+            .addComponent(jtab_empleados, javax.swing.GroupLayout.DEFAULT_SIZE, 380, Short.MAX_VALUE)
         );
 
         jb_asignamantenimiento.setText("Asignar");
@@ -1433,6 +1605,915 @@ public class ParteMario extends javax.swing.JFrame {
             .addComponent(jPanel17, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
+        jPanel19.addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentShown(java.awt.event.ComponentEvent evt) {
+                jPanel19ComponentShown(evt);
+            }
+        });
+
+        jLabel26.setText("Codigo Especie");
+
+        jLabel27.setText("Codigo Sub Especie");
+
+        jLabel28.setText("Nombre");
+
+        jLabel29.setText("Codigo");
+
+        tf_addAnimal_codigo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tf_addAnimal_codigoActionPerformed(evt);
+            }
+        });
+
+        jLabel30.setText("Continente");
+
+        cb_addAnimal_continente.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "América", "Asia", "África", "Antártida", "Europa", "Oceanía", "Zelandia" }));
+        cb_addAnimal_continente.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cb_addAnimal_continenteItemStateChanged(evt);
+            }
+        });
+
+        jLabel31.setText("Pais");
+
+        jLabel32.setText("Nacio en Cautiverio");
+
+        rb_addAnimal_si.setText("SI");
+
+        rb_addAnimal_no.setText("NO");
+
+        jLabel33.setText("Edad");
+
+        sp_addAnimal_edad.setModel(new javax.swing.SpinnerNumberModel(0, 0, 99, 1));
+
+        jLabel34.setText("Nombre de la madre");
+
+        jLabel35.setText("Nombre del padre");
+
+        jLabel36.setText("Cod Veterinario");
+
+        addAnimal.setText("Agregar");
+        addAnimal.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                addAnimalMouseClicked(evt);
+            }
+        });
+
+        cb_addAnimal_especie.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cb_addAnimal_especieItemStateChanged(evt);
+            }
+        });
+        cb_addAnimal_especie.addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentMoved(java.awt.event.ComponentEvent evt) {
+                cb_addAnimal_especieComponentMoved(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel19Layout = new javax.swing.GroupLayout(jPanel19);
+        jPanel19.setLayout(jPanel19Layout);
+        jPanel19Layout.setHorizontalGroup(
+            jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel19Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel19Layout.createSequentialGroup()
+                        .addComponent(addAnimal)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanel19Layout.createSequentialGroup()
+                        .addGroup(jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(jPanel19Layout.createSequentialGroup()
+                                    .addGroup(jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(jPanel19Layout.createSequentialGroup()
+                                            .addComponent(jLabel34)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(tf_addAnimal_madre, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(jLabel31)
+                                        .addGroup(jPanel19Layout.createSequentialGroup()
+                                            .addComponent(jLabel36)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                            .addComponent(tf_addAnimal_veterinario, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addGroup(jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(jPanel19Layout.createSequentialGroup()
+                                            .addComponent(jLabel33)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                            .addComponent(sp_addAnimal_edad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(jPanel19Layout.createSequentialGroup()
+                                            .addComponent(jLabel35)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(tf_addAnimal_padre))))
+                                .addGroup(jPanel19Layout.createSequentialGroup()
+                                    .addGroup(jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel28)
+                                        .addGroup(jPanel19Layout.createSequentialGroup()
+                                            .addComponent(jLabel26)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(cb_addAnimal_especie, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(jPanel19Layout.createSequentialGroup()
+                                            .addGap(62, 62, 62)
+                                            .addGroup(jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                .addComponent(tf_addAnimal_nombre, javax.swing.GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE)
+                                                .addComponent(tf_addAnimal_pais))))
+                                    .addGap(33, 33, 33)
+                                    .addGroup(jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(jPanel19Layout.createSequentialGroup()
+                                            .addComponent(jLabel32)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                            .addComponent(rb_addAnimal_si)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                            .addComponent(rb_addAnimal_no))
+                                        .addGroup(jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addGroup(jPanel19Layout.createSequentialGroup()
+                                                .addComponent(jLabel27)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(cb_addAnimal_subEspecie, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(81, 81, 81))
+                                            .addGroup(jPanel19Layout.createSequentialGroup()
+                                                .addComponent(jLabel30)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(cb_addAnimal_continente, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                            .addGroup(jPanel19Layout.createSequentialGroup()
+                                .addComponent(jLabel29)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(tf_addAnimal_codigo, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+        );
+        jPanel19Layout.setVerticalGroup(
+            jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel19Layout.createSequentialGroup()
+                .addGap(11, 11, 11)
+                .addGroup(jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel29)
+                    .addComponent(tf_addAnimal_codigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel26)
+                    .addComponent(jLabel27)
+                    .addComponent(cb_addAnimal_especie, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cb_addAnimal_subEspecie, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel28)
+                        .addComponent(jLabel30)
+                        .addComponent(cb_addAnimal_continente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tf_addAnimal_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel31)
+                    .addComponent(jLabel32)
+                    .addComponent(rb_addAnimal_si)
+                    .addComponent(rb_addAnimal_no)
+                    .addComponent(tf_addAnimal_pais, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel34)
+                    .addComponent(tf_addAnimal_madre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel35)
+                    .addComponent(tf_addAnimal_padre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel33)
+                    .addComponent(sp_addAnimal_edad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel36)
+                    .addComponent(tf_addAnimal_veterinario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(addAnimal)
+                .addContainerGap(78, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.addTab("Agregar Animal", jPanel19);
+
+        jTabbedPane2.setTabPlacement(javax.swing.JTabbedPane.LEFT);
+
+        jPanel21.addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentShown(java.awt.event.ComponentEvent evt) {
+                jPanel21ComponentShown(evt);
+            }
+        });
+
+        jLabel38.setText("Especie");
+
+        bt_buscarAnimal.setText("Buscar");
+        bt_buscarAnimal.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                bt_buscarAnimalMouseClicked(evt);
+            }
+        });
+
+        tb_buscarAnimal.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Codigo", "Nombre", "Especie", "Sub Eespecie", "Continente", "Pais"
+            }
+        ));
+        jScrollPane3.setViewportView(tb_buscarAnimal);
+
+        jLabel37.setText("Sub Especie");
+
+        jButton6.setText("Buscar");
+        jButton6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton6MouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel21Layout = new javax.swing.GroupLayout(jPanel21);
+        jPanel21.setLayout(jPanel21Layout);
+        jPanel21Layout.setHorizontalGroup(
+            jPanel21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel21Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 460, Short.MAX_VALUE)
+                    .addGroup(jPanel21Layout.createSequentialGroup()
+                        .addGroup(jPanel21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanel21Layout.createSequentialGroup()
+                                .addComponent(jLabel38)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(cb_buscarAnimal1_especie, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel21Layout.createSequentialGroup()
+                                .addComponent(jLabel37)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(cb_buscarAnimal1_subespecie, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(bt_buscarAnimal)
+                            .addComponent(jButton6))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        jPanel21Layout.setVerticalGroup(
+            jPanel21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel21Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel38)
+                    .addComponent(bt_buscarAnimal)
+                    .addComponent(cb_buscarAnimal1_especie, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel37)
+                    .addComponent(cb_buscarAnimal1_subespecie, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton6))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(25, 25, 25))
+        );
+
+        jTabbedPane2.addTab("Por Especie", jPanel21);
+
+        jLabel39.setText("Codigo");
+
+        tf_buscarAnimal_codigo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tf_buscarAnimal_codigoActionPerformed(evt);
+            }
+        });
+
+        jLabel40.setText("Especie");
+
+        jLabel41.setText("Nombre");
+
+        jLabel42.setText("Pais");
+
+        jLabel43.setText("Madre");
+
+        jLabel44.setText("Veterinario");
+
+        tf_buscarAnimal_veterinario.setEnabled(false);
+
+        jLabel45.setText("Edad");
+
+        sp_buscarAnimal_edad.setModel(new javax.swing.SpinnerNumberModel(0, 0, 99, 1));
+
+        jLabel46.setText("Padre");
+
+        rb_buscarAnimal_no.setText("NO");
+
+        rb_buscarAnimal_si.setText("SI");
+
+        jLabel47.setText("Cautiverio");
+
+        jLabel48.setText("Sub Especie");
+
+        cb_buscarAnimal_continente.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "América", "Asia", "África", "Antártida", "Europa", "Oceanía", "Zelandia" }));
+
+        jLabel49.setText("Continente");
+
+        jButton9.setText("Guardar Cambio");
+        jButton9.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton9MouseClicked(evt);
+            }
+        });
+
+        bt_EliminarAnimal.setText("Eliminar");
+        bt_EliminarAnimal.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                bt_EliminarAnimalMouseClicked(evt);
+            }
+        });
+
+        bt_buscarAnimal2.setText("Buscar");
+        bt_buscarAnimal2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                bt_buscarAnimal2MouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel22Layout = new javax.swing.GroupLayout(jPanel22);
+        jPanel22.setLayout(jPanel22Layout);
+        jPanel22Layout.setHorizontalGroup(
+            jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel22Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel22Layout.createSequentialGroup()
+                        .addComponent(jLabel39)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(tf_buscarAnimal_codigo, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(bt_buscarAnimal2))
+                    .addGroup(jPanel22Layout.createSequentialGroup()
+                        .addGroup(jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel41)
+                            .addGroup(jPanel22Layout.createSequentialGroup()
+                                .addGroup(jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel40)
+                                    .addComponent(jLabel42))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(tf_buscarAnimal_nombre, javax.swing.GroupLayout.DEFAULT_SIZE, 137, Short.MAX_VALUE)
+                                    .addComponent(tf_buscarAnimal_especie)
+                                    .addComponent(tf_buscarAnimal_pais))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(jPanel22Layout.createSequentialGroup()
+                                    .addComponent(jLabel48)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(tf_buscarAnimal_subespecie, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel22Layout.createSequentialGroup()
+                                    .addComponent(jLabel49)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(cb_buscarAnimal_continente, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(17, 17, 17)))
+                            .addGroup(jPanel22Layout.createSequentialGroup()
+                                .addComponent(jLabel47)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(rb_buscarAnimal_si)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(rb_buscarAnimal_no))))
+                    .addGroup(jPanel22Layout.createSequentialGroup()
+                        .addGroup(jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel22Layout.createSequentialGroup()
+                                .addComponent(jLabel44)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(tf_buscarAnimal_veterinario))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel22Layout.createSequentialGroup()
+                                .addComponent(jLabel43)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(tf_buscarAnimal_madre, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel22Layout.createSequentialGroup()
+                                .addComponent(jLabel46)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(tf_buscarAnimal_padre, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel22Layout.createSequentialGroup()
+                                .addGap(10, 10, 10)
+                                .addComponent(jLabel45)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(sp_buscarAnimal_edad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(jPanel22Layout.createSequentialGroup()
+                        .addComponent(jButton9)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(bt_EliminarAnimal)))
+                .addGap(0, 57, Short.MAX_VALUE))
+        );
+        jPanel22Layout.setVerticalGroup(
+            jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel22Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel39)
+                    .addComponent(tf_buscarAnimal_codigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(bt_buscarAnimal2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel40)
+                    .addComponent(tf_buscarAnimal_especie, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tf_buscarAnimal_subespecie, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel48))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(tf_buscarAnimal_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel41)
+                    .addComponent(jLabel49)
+                    .addComponent(cb_buscarAnimal_continente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel42)
+                    .addComponent(jLabel47)
+                    .addComponent(rb_buscarAnimal_si)
+                    .addComponent(rb_buscarAnimal_no)
+                    .addComponent(tf_buscarAnimal_pais, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel43)
+                    .addComponent(tf_buscarAnimal_madre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel46)
+                    .addComponent(tf_buscarAnimal_padre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel44)
+                    .addComponent(tf_buscarAnimal_veterinario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel45)
+                    .addComponent(sp_buscarAnimal_edad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton9)
+                    .addComponent(bt_EliminarAnimal))
+                .addContainerGap(82, Short.MAX_VALUE))
+        );
+
+        jTabbedPane2.addTab("Por Identificador", jPanel22);
+
+        javax.swing.GroupLayout jPanel20Layout = new javax.swing.GroupLayout(jPanel20);
+        jPanel20.setLayout(jPanel20Layout);
+        jPanel20Layout.setHorizontalGroup(
+            jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jTabbedPane2)
+        );
+        jPanel20Layout.setVerticalGroup(
+            jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jTabbedPane2)
+        );
+
+        jTabbedPane1.addTab("Buscar", jPanel20);
+
+        jTabbedPane3.setTabPlacement(javax.swing.JTabbedPane.LEFT);
+
+        jPanel24.addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentShown(java.awt.event.ComponentEvent evt) {
+                jPanel24ComponentShown(evt);
+            }
+        });
+
+        jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
+
+        jLabel50.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel50.setText("Especie");
+
+        jLabel51.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel51.setText("Sub Especie");
+
+        jLabel52.setText("Codigo Especie");
+
+        jLabel53.setText("Nombre");
+
+        jLabel54.setText("Codigo Especie");
+
+        jLabel55.setText("Codigo SubEspecie");
+
+        jLabel56.setText("Nombre");
+
+        jButton1.setText("Agregar Especie");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
+
+        jButton2.setText("Agregar SubEspecie");
+        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton2MouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel24Layout = new javax.swing.GroupLayout(jPanel24);
+        jPanel24.setLayout(jPanel24Layout);
+        jPanel24Layout.setHorizontalGroup(
+            jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel24Layout.createSequentialGroup()
+                .addGroup(jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel24Layout.createSequentialGroup()
+                        .addGroup(jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel24Layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addGroup(jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel24Layout.createSequentialGroup()
+                                        .addComponent(jLabel52)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(tf_agregarEspecie_codEspecie, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel24Layout.createSequentialGroup()
+                                        .addComponent(jLabel53)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(tf_agregarEspecie_nombreEspecie, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel24Layout.createSequentialGroup()
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel50)
+                                .addGap(85, 85, 85)))
+                        .addGap(9, 9, 9))
+                    .addGroup(jPanel24Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jButton1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel24Layout.createSequentialGroup()
+                        .addComponent(jLabel55)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(tf_agregarEspecie_codSubEspecie, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel24Layout.createSequentialGroup()
+                        .addComponent(jLabel54)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cb_agregarEspecie_codEspecie, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel24Layout.createSequentialGroup()
+                        .addComponent(jLabel56)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(tf_agregarEspecie_nombreSubEspecie, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel24Layout.createSequentialGroup()
+                        .addGap(81, 81, 81)
+                        .addComponent(jLabel51))
+                    .addGroup(jPanel24Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton2)))
+                .addGap(63, 63, 63))
+        );
+        jPanel24Layout.setVerticalGroup(
+            jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel24Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel24Layout.createSequentialGroup()
+                        .addGroup(jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel50)
+                            .addComponent(jLabel51))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel24Layout.createSequentialGroup()
+                                .addGroup(jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel52)
+                                    .addComponent(tf_agregarEspecie_codEspecie, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel53)
+                                    .addComponent(tf_agregarEspecie_nombreEspecie, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jPanel24Layout.createSequentialGroup()
+                                .addGroup(jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel54)
+                                    .addComponent(cb_agregarEspecie_codEspecie, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel55)
+                                    .addComponent(tf_agregarEspecie_codSubEspecie, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabel56)
+                                .addComponent(tf_agregarEspecie_nombreSubEspecie, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jButton1))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton2)))
+                .addContainerGap(85, Short.MAX_VALUE))
+        );
+
+        jTabbedPane3.addTab("Agregar", jPanel24);
+
+        jButton3.setText("Especies");
+        jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton3MouseClicked(evt);
+            }
+        });
+
+        tb_especies.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+
+            }
+        ));
+        jScrollPane4.setViewportView(tb_especies);
+
+        jButton4.setText("Sub Especies");
+        jButton4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton4MouseClicked(evt);
+            }
+        });
+
+        jButton5.setText("Eliminar");
+        jButton5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton5MouseClicked(evt);
+            }
+        });
+
+        lb_especies.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+
+        javax.swing.GroupLayout jPanel25Layout = new javax.swing.GroupLayout(jPanel25);
+        jPanel25.setLayout(jPanel25Layout);
+        jPanel25Layout.setHorizontalGroup(
+            jPanel25Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel25Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel25Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 501, Short.MAX_VALUE)
+                    .addGroup(jPanel25Layout.createSequentialGroup()
+                        .addComponent(lb_especies)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanel25Layout.createSequentialGroup()
+                        .addComponent(jButton3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton5)))
+                .addContainerGap())
+        );
+        jPanel25Layout.setVerticalGroup(
+            jPanel25Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel25Layout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addComponent(lb_especies)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel25Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton3)
+                    .addComponent(jButton4)
+                    .addComponent(jButton5))
+                .addContainerGap(44, Short.MAX_VALUE))
+        );
+
+        jTabbedPane3.addTab("Eliminar", jPanel25);
+
+        javax.swing.GroupLayout jPanel23Layout = new javax.swing.GroupLayout(jPanel23);
+        jPanel23.setLayout(jPanel23Layout);
+        jPanel23Layout.setHorizontalGroup(
+            jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jTabbedPane3)
+        );
+        jPanel23Layout.setVerticalGroup(
+            jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel23Layout.createSequentialGroup()
+                .addComponent(jTabbedPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.addTab("Especie/Sub Especie", jPanel23);
+
+        jTabbedPane4.setTabPlacement(javax.swing.JTabbedPane.LEFT);
+
+        jPanel27.addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentShown(java.awt.event.ComponentEvent evt) {
+                jPanel27ComponentShown(evt);
+            }
+        });
+
+        jLabel57.setText("Codigo del Animal");
+
+        cb_enfermedad_codigoAnimal.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cb_enfermedad_codigoAnimalItemStateChanged(evt);
+            }
+        });
+        cb_enfermedad_codigoAnimal.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                cb_enfermedad_codigoAnimalMouseClicked(evt);
+            }
+        });
+
+        jLabel58.setText("Nombre del Animal:");
+
+        lb_enfermedad_nombre.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        lb_enfermedad_nombre.setText("------------");
+
+        jLabel59.setText("Enfermedad");
+
+        jLabel60.setText("Tratamiento");
+
+        ta_enfermedad_tratamiento.setColumns(20);
+        ta_enfermedad_tratamiento.setRows(5);
+        jScrollPane5.setViewportView(ta_enfermedad_tratamiento);
+
+        jLabel61.setText("Estado");
+
+        cb_enfermedad_estado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Enfermo", "Curado" }));
+
+        jButton7.setText("Agregar");
+        jButton7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton7MouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel27Layout = new javax.swing.GroupLayout(jPanel27);
+        jPanel27.setLayout(jPanel27Layout);
+        jPanel27Layout.setHorizontalGroup(
+            jPanel27Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel27Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel27Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel27Layout.createSequentialGroup()
+                        .addGroup(jPanel27Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel27Layout.createSequentialGroup()
+                                .addComponent(jLabel57)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(cb_enfermedad_codigoAnimal, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel27Layout.createSequentialGroup()
+                                .addComponent(jLabel59)
+                                .addGap(18, 18, 18)
+                                .addComponent(tf_enfermedad, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(57, 57, 57)
+                        .addComponent(jLabel58)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lb_enfermedad_nombre))
+                    .addGroup(jPanel27Layout.createSequentialGroup()
+                        .addComponent(jLabel60)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel27Layout.createSequentialGroup()
+                        .addComponent(jLabel61)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cb_enfermedad_estado, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jButton7))
+                .addContainerGap(113, Short.MAX_VALUE))
+        );
+        jPanel27Layout.setVerticalGroup(
+            jPanel27Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel27Layout.createSequentialGroup()
+                .addGap(31, 31, 31)
+                .addGroup(jPanel27Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel57)
+                    .addComponent(cb_enfermedad_codigoAnimal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel58)
+                    .addComponent(lb_enfermedad_nombre))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel27Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel59)
+                    .addComponent(tf_enfermedad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel27Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel60)
+                    .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel27Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel61)
+                    .addComponent(cb_enfermedad_estado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton7)
+                .addGap(39, 39, 39))
+        );
+
+        jTabbedPane4.addTab("Nuevas", jPanel27);
+
+        jPanel28.addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentShown(java.awt.event.ComponentEvent evt) {
+                jPanel28ComponentShown(evt);
+            }
+        });
+
+        tb_enfermedades.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+
+            }
+        ));
+        jScrollPane6.setViewportView(tb_enfermedades);
+
+        javax.swing.GroupLayout jPanel28Layout = new javax.swing.GroupLayout(jPanel28);
+        jPanel28.setLayout(jPanel28Layout);
+        jPanel28Layout.setHorizontalGroup(
+            jPanel28Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel28Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 504, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        jPanel28Layout.setVerticalGroup(
+            jPanel28Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel28Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(51, Short.MAX_VALUE))
+        );
+
+        jTabbedPane4.addTab("Lista", jPanel28);
+
+        javax.swing.GroupLayout jPanel26Layout = new javax.swing.GroupLayout(jPanel26);
+        jPanel26.setLayout(jPanel26Layout);
+        jPanel26Layout.setHorizontalGroup(
+            jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jTabbedPane4)
+        );
+        jPanel26Layout.setVerticalGroup(
+            jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel26Layout.createSequentialGroup()
+                .addComponent(jTabbedPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.addTab("Enfermedades", jPanel26);
+
+        jPanel29.addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentShown(java.awt.event.ComponentEvent evt) {
+                jPanel29ComponentShown(evt);
+            }
+        });
+
+        jLabel62.setText("Codigo del animal");
+
+        cb_animal.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                cb_animalMouseClicked(evt);
+            }
+        });
+
+        jLabel63.setText("Nombre del animal");
+
+        lb_animal.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        lb_animal.setText("--------");
+
+        tb_descendientes.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+
+            }
+        ));
+        jScrollPane7.setViewportView(tb_descendientes);
+
+        jLabel64.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jLabel64.setText("descendientes");
+
+        javax.swing.GroupLayout jPanel29Layout = new javax.swing.GroupLayout(jPanel29);
+        jPanel29.setLayout(jPanel29Layout);
+        jPanel29Layout.setHorizontalGroup(
+            jPanel29Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel29Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel29Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 471, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel29Layout.createSequentialGroup()
+                        .addComponent(jLabel62)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cb_animal, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(45, 45, 45)
+                        .addComponent(jLabel63)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lb_animal, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel64))
+                .addContainerGap(100, Short.MAX_VALUE))
+        );
+        jPanel29Layout.setVerticalGroup(
+            jPanel29Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel29Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel29Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel62)
+                    .addComponent(cb_animal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel63)
+                    .addComponent(lb_animal))
+                .addGap(18, 18, 18)
+                .addComponent(jLabel64)
+                .addGap(4, 4, 4)
+                .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(87, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.addTab("descendencia", jPanel29);
+
+        javax.swing.GroupLayout jd_animalesLayout = new javax.swing.GroupLayout(jd_animales.getContentPane());
+        jd_animales.getContentPane().setLayout(jd_animalesLayout);
+        jd_animalesLayout.setHorizontalGroup(
+            jd_animalesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_animalesLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jTabbedPane1)
+                .addContainerGap())
+        );
+        jd_animalesLayout.setVerticalGroup(
+            jd_animalesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_animalesLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 305, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -1450,6 +2531,11 @@ public class ParteMario extends javax.swing.JFrame {
         jLabel3.setText("Animales:");
 
         bt_entrarAnimales.setText("Entrar");
+        bt_entrarAnimales.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bt_entrarAnimalesActionPerformed(evt);
+            }
+        });
 
         jLabel4.setText("Zoologico:");
 
@@ -1932,6 +3018,7 @@ public class ParteMario extends javax.swing.JFrame {
             opcion = JOptionPane.showConfirmDialog(this.jd_Empleados, "¿Desea Borrarlo?", "Borrar", YES_NO_OPTION);
             if (opcion == 0) {
                 db.getCollection("Empleados").deleteOne(Filters.eq("CodigoEmpleado", codEmpleado));
+                cb_eliminarEmpleados.removeItem(this.cb_eliminarEmpleados.getSelectedItem());
                 JOptionPane.showMessageDialog(this.jd_Empleados, "Eliminado!");
             }
         } catch (Exception e) {
@@ -1978,11 +3065,13 @@ public class ParteMario extends javax.swing.JFrame {
         ComboBoxModel model = this.cb_eliminarEmpleados.getModel();
         FindIterable<Document> iterDoc = db.getCollection("Empleados").find();
         int i = 1;
+        cb_eliminarEmpleados.removeAllItems();
         for (Document doc : iterDoc) {
             this.cb_eliminarEmpleados.addItem((String) doc.get("CodigoEmpleado"));
             i++;
         }
         int j = 1;
+        cb_veterinarios.removeAllItems();
         FindIterable<Document> iterDoc2 = db.getCollection("Veterinarios").find();
         for (Document doc : iterDoc2) {
             this.cb_veterinarios.addItem((String) doc.get("CodigoVeterinario"));
@@ -1990,9 +3079,10 @@ public class ParteMario extends javax.swing.JFrame {
         }
         FindIterable<Document> iterDoc3 = db.getCollection("Animales").find();
         int k = 1;
+        cb_animales.removeAllItems();
         for (Document doc : iterDoc3) {
             this.cb_animales.addItem(doc.get("CodigoAnimal") + "");
-            j++;
+            k++;
         }
 
 
@@ -2066,6 +3156,556 @@ public class ParteMario extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jb_asignamantenimientoActionPerformed
 
+    private void jtab_empleadosStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jtab_empleadosStateChanged
+        // TODO add your handling code here:
+        ComboBoxModel model = this.cb_eliminarEmpleados.getModel();
+        FindIterable<Document> iterDoc = db.getCollection("Empleados").find();
+        int i = 1;
+        cb_eliminarEmpleados.removeAllItems();
+        for (Document doc : iterDoc) {
+            this.cb_eliminarEmpleados.addItem((String) doc.get("CodigoEmpleado"));
+            i++;
+        }
+        int j = 1;
+        FindIterable<Document> iterDoc2 = db.getCollection("Veterinarios").find();
+        cb_veterinarios.removeAllItems();
+        for (Document doc : iterDoc2) {
+            this.cb_veterinarios.addItem((String) doc.get("CodigoVeterinario"));
+            j++;
+        }
+        FindIterable<Document> iterDoc3 = db.getCollection("Animales").find();
+        int k = 1;
+        cb_animales.removeAllItems();
+        for (Document doc : iterDoc3) {
+            this.cb_animales.addItem(doc.get("CodigoAnimal") + "");
+            k++;
+        }
+        this.jt_codAgregarEmpleados.setText("");
+        this.jt_pNombreAgregarEmpleado.setText("");
+        this.jt_sNombreAgregarEmpleado.setText("");
+        this.jt_pApellidoAgregarEmpleado.setText("");
+        this.jt_sApellidoAgregarEmpleado.setText("");
+        this.jt_cargoAgregarEmpleado.setText("");
+        this.jt_codModificarEmpleados.setText("");
+        this.jt_pNombreModificarEmpleado.setText("");
+        this.jt_sNombreModificarEmpleado.setText("");
+        this.jt_pApellidoModificarEmpleado.setText("");
+        this.jt_sApellidoModificarEmpleado.setText("");
+        this.jt_cargoModificarEmpleado.setText("");
+    }//GEN-LAST:event_jtab_empleadosStateChanged
+
+    private void tf_addAnimal_codigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_addAnimal_codigoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tf_addAnimal_codigoActionPerformed
+
+    private void cb_addAnimal_continenteItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cb_addAnimal_continenteItemStateChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cb_addAnimal_continenteItemStateChanged
+
+    private void addAnimalMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addAnimalMouseClicked
+        // TODO add your handling code here:
+        MongoClientURI uri = new MongoClientURI("mongodb://admin:admin@ds044709.mlab.com:44709/proyectoz");
+        MongoClient zoo = new MongoClient(uri);
+        MongoDatabase db = zoo.getDatabase(uri.getDatabase());
+        Document doc = new Document();
+        BasicDBObject query = new BasicDBObject();
+        query.put("CodigoAnimal", this.tf_enfermedad.getText());
+        Document doc2 = db.getCollection("Animales").find(query).first();
+        if (doc2 == null) {
+            doc.append("CodigoAnimal", Integer.parseInt(this.tf_addAnimal_codigo.getText()));
+            doc.append("CodigoEspecie", Integer.parseInt(this.cb_addAnimal_especie.getSelectedItem().toString()));
+            doc.append("CodigoSubEspecie", Integer.parseInt(this.cb_addAnimal_subEspecie.getSelectedItem().toString()));
+            doc.append("Nombre", this.tf_addAnimal_nombre.getText());
+            doc.append("Continente", this.cb_addAnimal_continente.getSelectedItem().toString());
+            doc.append("Pais", this.tf_addAnimal_pais.getText());
+            doc.append("Nombre_Madre", this.tf_addAnimal_madre.getText());
+            doc.append("Nombre_Padre", this.tf_addAnimal_padre.getText());
+            if (this.rb_addAnimal_si.isSelected()) {
+                doc.append("Cautiverio", "SI");
+            } else {
+                doc.append("Cautiverio", "NO");
+            }
+            doc.append("CodigoVeterinario", Integer.parseInt(this.tf_addAnimal_veterinario.getText()));
+            doc.append("Edad", this.sp_addAnimal_edad.getValue());
+            db.getCollection("Animales").insertOne(doc);
+            JOptionPane.showMessageDialog(this, "Agregado con Exito");
+            this.tf_addAnimal_codigo.setText("");
+            this.cb_addAnimal_especie.setSelectedIndex(1);
+            this.cb_addAnimal_subEspecie.setSelectedIndex(1);
+            this.tf_addAnimal_nombre.setText("");
+            this.tf_addAnimal_madre.setText("");
+            this.tf_addAnimal_padre.setText("");
+            this.tf_addAnimal_veterinario.setText("");
+            this.cb_addAnimal_continente.setSelectedIndex(1);
+            this.tf_addAnimal_pais.setText("");
+            this.rb_addAnimal_no.setSelected(false);
+            this.sp_addAnimal_edad.setValue(0);
+        } else {
+            JOptionPane.showMessageDialog(this, "El codigo ya existe");
+        }
+    }//GEN-LAST:event_addAnimalMouseClicked
+
+    private void cb_addAnimal_especieItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cb_addAnimal_especieItemStateChanged
+        // TODO add your handling code here:
+        MongoClientURI uri = new MongoClientURI("mongodb://admin:admin@ds044709.mlab.com:44709/proyectoz");
+        MongoClient zoo = new MongoClient(uri);
+        MongoDatabase db = zoo.getDatabase(uri.getDatabase());
+        BasicDBObject query = new BasicDBObject();
+        query.put("CodigoEspecie", Integer.parseInt(this.cb_addAnimal_especie.getSelectedItem().toString()));
+        DefaultComboBoxModel modelo = new DefaultComboBoxModel();
+        FindIterable<Document> iterable = db.getCollection("SubEspecie").find(query);
+        iterable.forEach(new Block<Document>() {
+            @Override
+            public void apply(final Document document) {
+                modelo.addElement(document.get("CodigoSubEspecie"));
+            }
+        });
+        this.cb_addAnimal_subEspecie.setModel(modelo);
+    }//GEN-LAST:event_cb_addAnimal_especieItemStateChanged
+
+    private void cb_addAnimal_especieComponentMoved(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_cb_addAnimal_especieComponentMoved
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cb_addAnimal_especieComponentMoved
+
+    private void jPanel19ComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_jPanel19ComponentShown
+        // TODO add your handling code here:
+        MongoClientURI uri = new MongoClientURI("mongodb://admin:admin@ds044709.mlab.com:44709/proyectoz");
+        MongoClient zoo = new MongoClient(uri);
+        MongoDatabase db = zoo.getDatabase(uri.getDatabase());
+        DefaultComboBoxModel modelo = new DefaultComboBoxModel();
+        FindIterable<Document> iterable = db.getCollection("Especie").find();
+        iterable.forEach(new Block<Document>() {
+            @Override
+            public void apply(final Document document) {
+                modelo.addElement(document.get("CodigoEspecie"));
+            }
+        });
+        this.cb_addAnimal_especie.setModel(modelo);
+        cb_buscarAnimal1_especie.setModel(modelo);
+    }//GEN-LAST:event_jPanel19ComponentShown
+
+    private void bt_buscarAnimalMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_buscarAnimalMouseClicked
+        // TODO add your handling code here:
+        DefaultTableModel modelo = new DefaultTableModel();
+        modelo.addColumn("Codigo");
+        modelo.addColumn("Nombre");
+        modelo.addColumn("Especie");
+        modelo.addColumn("Sub Especie");
+        modelo.addColumn("Continente");
+        modelo.addColumn("Pais");
+
+        MongoClientURI uri = new MongoClientURI("mongodb://admin:admin@ds044709.mlab.com:44709/proyectoz");
+        MongoClient zoo = new MongoClient(uri);
+        MongoDatabase db = zoo.getDatabase(uri.getDatabase());
+        BasicDBObject query = new BasicDBObject();
+        query.put("CodigoEspecie", Integer.parseInt(this.cb_buscarAnimal1_especie.getSelectedItem().toString()));
+        FindIterable<Document> iterable = db.getCollection("Animales").find(query);
+        iterable.forEach(new Block<Document>() {
+            @Override
+            public void apply(final Document doc) {
+                Object[] a = {doc.get("CodigoAnimal"), doc.get("Nombre"), doc.get("CodigoEspecie"), doc.get("CodigoSubEspecie"), doc.get("Continente"), doc.get("Pais")};
+                modelo.addRow(a);
+            }
+        });
+        this.tb_buscarAnimal.setModel(modelo);
+    }//GEN-LAST:event_bt_buscarAnimalMouseClicked
+
+    private void jButton6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton6MouseClicked
+        // TODO add your handling code here:
+        DefaultTableModel modelo = new DefaultTableModel();
+        modelo.addColumn("Codigo");
+        modelo.addColumn("Nombre");
+        modelo.addColumn("Especie");
+        modelo.addColumn("Sub Especie");
+        modelo.addColumn("Continente");
+        modelo.addColumn("Pais");
+
+        MongoClientURI uri = new MongoClientURI("mongodb://admin:admin@ds044709.mlab.com:44709/proyectoz");
+        MongoClient zoo = new MongoClient(uri);
+        MongoDatabase db = zoo.getDatabase(uri.getDatabase());
+        BasicDBObject query = new BasicDBObject();
+        query.put("CodigSuboEspecie", Integer.parseInt(this.cb_buscarAnimal1_subespecie.getSelectedItem().toString()));
+        FindIterable<Document> iterable = db.getCollection("Animales").find(query);
+        iterable.forEach(new Block<Document>() {
+            @Override
+            public void apply(final Document doc) {
+                Object[] a = {doc.get("CodigoAnimal"), doc.get("Nombre"), doc.get("CodigoEspecie"), doc.get("CodigoSubEspecie"), doc.get("Continente"), doc.get("Pais")};
+                modelo.addRow(a);
+            }
+        });
+        this.tb_buscarAnimal.setModel(modelo);
+    }//GEN-LAST:event_jButton6MouseClicked
+
+    private void jPanel21ComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_jPanel21ComponentShown
+        // TODO add your handling code here:
+        MongoClientURI uri = new MongoClientURI("mongodb://admin:admin@ds044709.mlab.com:44709/proyectoz");
+        MongoClient zoo = new MongoClient(uri);
+        MongoDatabase db = zoo.getDatabase(uri.getDatabase());
+        DefaultComboBoxModel modelo = new DefaultComboBoxModel();
+        FindIterable<Document> iterable = db.getCollection("SubEspecie").find();
+        iterable.forEach(new Block<Document>() {
+            @Override
+            public void apply(final Document document) {
+                modelo.addElement(document.get("CodigoSubEspecie"));
+            }
+        });
+        this.cb_buscarAnimal1_subespecie.setModel(modelo);
+    }//GEN-LAST:event_jPanel21ComponentShown
+
+    private void tf_buscarAnimal_codigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_buscarAnimal_codigoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tf_buscarAnimal_codigoActionPerformed
+
+    private void jButton9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton9MouseClicked
+        // TODO add your handling code here:
+        MongoClientURI uri = new MongoClientURI("mongodb://admin:admin@ds044709.mlab.com:44709/proyectoz");
+        MongoClient zoo = new MongoClient(uri);
+        MongoDatabase db = zoo.getDatabase(uri.getDatabase());
+        int codigo = Integer.parseInt(this.tf_buscarAnimal_codigo.getText());
+        db.getCollection("Animales").updateOne(Filters.eq("CodigoAnimal", codigo), Updates.set("CodigoEspecie", Integer.parseInt(this.tf_buscarAnimal_especie.getText())));
+        db.getCollection("Animales").updateOne(Filters.eq("CodigoAnimal", codigo), Updates.set("Nombre", this.tf_buscarAnimal_nombre.getText()));
+        db.getCollection("Animales").updateOne(Filters.eq("CodigoAnimal", codigo), Updates.set("CodigoSubEspecie", Integer.parseInt(this.tf_buscarAnimal_subespecie.getText())));
+        db.getCollection("Animales").updateOne(Filters.eq("CodigoAnimal", codigo), Updates.set("Continente", this.cb_buscarAnimal_continente.getSelectedItem().toString()));
+        db.getCollection("Animales").updateOne(Filters.eq("CodigoAnimal", codigo), Updates.set("Pais", this.tf_buscarAnimal_pais.getText()));
+        db.getCollection("Animales").updateOne(Filters.eq("CodigoAnimal", codigo), Updates.set("Edad", this.sp_buscarAnimal_edad.getValue()));
+        db.getCollection("Animales").updateOne(Filters.eq("CodigoAnimal", codigo), Updates.set("Nombre_Madre", this.tf_buscarAnimal_madre.getText()));
+        db.getCollection("Animales").updateOne(Filters.eq("CodigoAnimal", codigo), Updates.set("Nombre_Padre", this.tf_buscarAnimal_padre.getText()));
+        if (this.rb_buscarAnimal_si.isSelected()) {
+            db.getCollection("Animales").updateOne(Filters.eq("CodigoAnimal", codigo), Updates.set("Cautiverio", "SI"));
+        } else {
+            db.getCollection("Animales").updateOne(Filters.eq("CodigoAnimal", codigo), Updates.set("Cautiverio", "NO"));
+        }
+        JOptionPane.showMessageDialog(this.jd_animales, "Modificado Exitosamente!");
+    }//GEN-LAST:event_jButton9MouseClicked
+
+    private void bt_EliminarAnimalMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_EliminarAnimalMouseClicked
+        // TODO add your handling code here:
+        MongoClientURI uri = new MongoClientURI("mongodb://admin:admin@ds044709.mlab.com:44709/proyectoz");
+        MongoClient zoo = new MongoClient(uri);
+        MongoDatabase db = zoo.getDatabase(uri.getDatabase());
+        int opcion;
+        try {
+            opcion = JOptionPane.showConfirmDialog(this.jd_animales, "¿Desea Borrarlo?", "Borrar", YES_NO_OPTION);
+            if (opcion == 0) {
+                db.getCollection("Animales").deleteOne(Filters.eq("CodigoAnimal", this.tf_buscarAnimal_codigo.getText()));
+                JOptionPane.showMessageDialog(this.jd_animales, "Eliminado!");
+            }
+        } catch (Exception e) {
+        }
+    }//GEN-LAST:event_bt_EliminarAnimalMouseClicked
+
+    private void bt_buscarAnimal2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_buscarAnimal2MouseClicked
+        // TODO add your handling code here:
+        MongoClientURI uri = new MongoClientURI("mongodb://admin:admin@ds044709.mlab.com:44709/proyectoz");
+        MongoClient zoo = new MongoClient(uri);
+        MongoDatabase db = zoo.getDatabase(uri.getDatabase());
+        BasicDBObject query = new BasicDBObject();
+        query.put("CodigoAnimal", Integer.parseInt(this.tf_buscarAnimal_codigo.getText()));
+        Document doc = db.getCollection("Animales").find(query).first();
+        this.tf_buscarAnimal_especie.setText(doc.get("CodigoEspecie").toString());
+        this.tf_buscarAnimal_subespecie.setText(doc.get("CodigoSubEspecie").toString());
+        this.tf_buscarAnimal_nombre.setText(doc.get("Nombre").toString());
+        this.tf_buscarAnimal_madre.setText(doc.get("Nombre_Madre").toString());
+        this.tf_buscarAnimal_padre.setText(doc.get("Nombre_Padre").toString());
+        this.tf_buscarAnimal_veterinario.setText(doc.get("CodigoVeterinario").toString());
+        this.cb_buscarAnimal_continente.setSelectedItem(doc.get("Continente"));
+        this.tf_buscarAnimal_pais.setText(doc.get("Pais").toString());
+        this.sp_buscarAnimal_edad.setValue(doc.get("Edad"));
+        if (doc.get("Cautiverio").toString().equals("SI")) {
+            this.rb_buscarAnimal_si.setSelected(true);
+        } else {
+            this.rb_buscarAnimal_no.setSelected(true);
+        }
+    }//GEN-LAST:event_bt_buscarAnimal2MouseClicked
+
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        // TODO add your handling code here:
+        MongoClientURI uri = new MongoClientURI("mongodb://admin:admin@ds044709.mlab.com:44709/proyectoz");
+        MongoClient zoo = new MongoClient(uri);
+        MongoDatabase db = zoo.getDatabase(uri.getDatabase());
+        Document doc = new Document();
+        BasicDBObject query = new BasicDBObject();
+        query.put("CodigoEspecie", Integer.parseInt(this.tf_agregarEspecie_codEspecie.getText()));
+        Document doc2 = db.getCollection("Especie").find(query).first();
+        System.out.println(doc2);
+        if (doc2 == null) {
+            doc.append("CodigoEspecie", Integer.parseInt(this.tf_agregarEspecie_codEspecie.getText()));
+            doc.append("NombreEspecie", this.tf_agregarEspecie_nombreEspecie.getText());
+            db.getCollection("Especie").insertOne(doc);
+            JOptionPane.showMessageDialog(this.jd_animales, "Agregado con Exito");
+            this.tf_agregarEspecie_codEspecie.setText("");
+            this.tf_agregarEspecie_nombreEspecie.setText("");
+        } else {
+            JOptionPane.showMessageDialog(this.jd_animales, "El codigo de la especie ya existe...");
+        }
+
+        DefaultComboBoxModel modelo = new DefaultComboBoxModel();
+        FindIterable<Document> iterable = db.getCollection("Especie").find();
+        iterable.forEach(new Block<Document>() {
+            @Override
+            public void apply(final Document document) {
+                modelo.addElement(document.get("CodigoEspecie"));
+                System.out.println(document);
+            }
+        });
+        this.cb_agregarEspecie_codEspecie.setModel(modelo);
+    }//GEN-LAST:event_jButton1MouseClicked
+
+    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
+        // TODO add your handling code here:
+        MongoClientURI uri = new MongoClientURI("mongodb://admin:admin@ds044709.mlab.com:44709/proyectoz");
+        MongoClient zoo = new MongoClient(uri);
+        MongoDatabase db = zoo.getDatabase(uri.getDatabase());
+        Document doc = new Document();
+        BasicDBObject query = new BasicDBObject();
+        query.put("CodigoSubEspecie", Integer.parseInt(this.tf_agregarEspecie_codSubEspecie.getText()));
+        if (db.getCollection("SubEspecie").find(query).first() == null) {
+            doc.append("CodigoEspecie", Integer.parseInt(this.cb_agregarEspecie_codEspecie.getSelectedItem().toString()));
+            doc.append("CodigoSubEspecie", Integer.parseInt(this.tf_agregarEspecie_codSubEspecie.getText()));
+            doc.append("NombreSubEspecie", this.tf_agregarEspecie_nombreSubEspecie.getText());
+            db.getCollection("SubEspecie").insertOne(doc);
+            JOptionPane.showMessageDialog(this.jd_animales, "Agregado con Exito");
+            this.tf_agregarEspecie_codSubEspecie.setText("");
+            this.tf_agregarEspecie_nombreSubEspecie.setText("");
+            this.cb_agregarEspecie_codEspecie.setSelectedIndex(1);
+        } else {
+            JOptionPane.showMessageDialog(this.jd_animales, "El codigo de la SubEspecie ya existe...");
+        }
+    }//GEN-LAST:event_jButton2MouseClicked
+
+    private void jPanel24ComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_jPanel24ComponentShown
+        // TODO add your handling code here:
+        MongoClientURI uri = new MongoClientURI("mongodb://admin:admin@ds044709.mlab.com:44709/proyectoz");
+        MongoClient zoo = new MongoClient(uri);
+        MongoDatabase db = zoo.getDatabase(uri.getDatabase());
+        DefaultComboBoxModel modelo = new DefaultComboBoxModel();
+        FindIterable<Document> iterable = db.getCollection("Especie").find();
+        iterable.forEach(new Block<Document>() {
+            @Override
+            public void apply(final Document document) {
+                modelo.addElement(document.get("CodigoEspecie"));
+            }
+        });
+        this.cb_agregarEspecie_codEspecie.setModel(modelo);
+    }//GEN-LAST:event_jPanel24ComponentShown
+
+    private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
+        // TODO add your handling code here:
+        DefaultTableModel modelo = new DefaultTableModel();
+        modelo.addColumn("Codigo Especie");
+        modelo.addColumn("Nombre");
+
+        MongoClientURI uri = new MongoClientURI("mongodb://admin:admin@ds044709.mlab.com:44709/proyectoz");
+        MongoClient zoo = new MongoClient(uri);
+        MongoDatabase db = zoo.getDatabase(uri.getDatabase());
+
+        FindIterable<Document> iterable = db.getCollection("Especie").find();
+        iterable.forEach(new Block<Document>() {
+            @Override
+            public void apply(final Document doc) {
+                Object[] a = {doc.get("CodigoEspecie"), doc.get("NombreEspecie")};
+                modelo.addRow(a);
+            }
+        });
+        this.tb_especies.setModel(modelo);
+        lb_especies.setText("Especies");
+    }//GEN-LAST:event_jButton3MouseClicked
+
+    private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
+        // TODO add your handling code here:
+        DefaultTableModel modelo = new DefaultTableModel();
+        modelo.addColumn("Codigo Especie");
+        modelo.addColumn("Codigo Sub Especie");
+        modelo.addColumn("Nombre");
+
+        MongoClientURI uri = new MongoClientURI("mongodb://admin:admin@ds044709.mlab.com:44709/proyectoz");
+        MongoClient zoo = new MongoClient(uri);
+        MongoDatabase db = zoo.getDatabase(uri.getDatabase());
+
+        FindIterable<Document> iterable = db.getCollection("SubEspecie").find();
+        iterable.forEach(new Block<Document>() {
+            @Override
+            public void apply(final Document doc) {
+                Object[] a = {doc.get("CodigoEspecie"), doc.get("CodigoSubEspecie"), doc.get("NombreSubEspecie")};
+                modelo.addRow(a);
+            }
+        });
+        this.tb_especies.setModel(modelo);
+        lb_especies.setText("Sub Especies");
+    }//GEN-LAST:event_jButton4MouseClicked
+
+    private void jButton5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseClicked
+        // TODO add your handling code here:
+        MongoClientURI uri = new MongoClientURI("mongodb://admin:admin@ds044709.mlab.com:44709/proyectoz");
+        MongoClient zoo = new MongoClient(uri);
+        MongoDatabase db = zoo.getDatabase(uri.getDatabase());
+        int opcion;
+        if (lb_especies.getText().equals("Especies")) {
+            int codigoEspecie = (int) this.tb_especies.getValueAt(tb_especies.getSelectedRow(), 1);
+            try {
+                opcion = JOptionPane.showConfirmDialog(this.jd_animales, "¿Desea Borrarlo?", "Borrar", YES_NO_OPTION);
+                if (opcion == 0) {
+                    db.getCollection("Especie").deleteOne(Filters.eq("CodigoEspecie", codigoEspecie));
+                    JOptionPane.showMessageDialog(this.jd_animales, "Eliminado!");
+                }
+            } catch (Exception e) {
+            }
+        } else {
+            int codigoEspecie = (int) this.tb_especies.getValueAt(tb_especies.getSelectedRow(), 1);
+            try {
+                opcion = JOptionPane.showConfirmDialog(this.jd_animales, "¿Desea Borrarlo?", "Borrar", YES_NO_OPTION);
+                if (opcion == 0) {
+                    db.getCollection("SubEspecie").deleteOne(Filters.eq("CodigoSubEspecie", codigoEspecie));
+                    JOptionPane.showMessageDialog(this.jd_animales, "Eliminado!");
+                }
+            } catch (Exception e) {
+            }
+        }
+    }//GEN-LAST:event_jButton5MouseClicked
+
+    private void cb_enfermedad_codigoAnimalItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cb_enfermedad_codigoAnimalItemStateChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cb_enfermedad_codigoAnimalItemStateChanged
+
+    private void cb_enfermedad_codigoAnimalMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cb_enfermedad_codigoAnimalMouseClicked
+        // TODO add your handling code here:
+        MongoClientURI uri = new MongoClientURI("mongodb://admin:admin@ds044709.mlab.com:44709/proyectoz");
+        MongoClient zoo = new MongoClient(uri);
+        MongoDatabase db = zoo.getDatabase(uri.getDatabase());
+        BasicDBObject query = new BasicDBObject();
+        query.put("CodigoAnimal", Integer.parseInt(this.cb_enfermedad_codigoAnimal.getSelectedItem().toString()));
+        DefaultComboBoxModel modelo = new DefaultComboBoxModel();
+        Document doc = db.getCollection("Animales").find(query).first();
+        this.lb_enfermedad_nombre.setText(doc.get("Nombre") + "");
+    }//GEN-LAST:event_cb_enfermedad_codigoAnimalMouseClicked
+
+    private void jButton7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton7MouseClicked
+        // TODO add your handling code here:
+        MongoClientURI uri = new MongoClientURI("mongodb://admin:admin@ds044709.mlab.com:44709/proyectoz");
+        MongoClient zoo = new MongoClient(uri);
+        MongoDatabase db = zoo.getDatabase(uri.getDatabase());
+        Document doc = new Document();
+        BasicDBObject query = new BasicDBObject();
+        query.put("NombreEnfermedad", this.tf_enfermedad.getText());
+        Document doc2 = db.getCollection("Enfermedades").find(query).first();
+        if (doc2 == null) {
+            doc.append("CodigoAnimal", Integer.parseInt(cb_enfermedad_codigoAnimal.getSelectedItem().toString()));
+            doc.append("NombreEnfermedad", this.tf_enfermedad.getText());
+            doc.append("Tratamiento", this.ta_enfermedad_tratamiento.getText());
+            doc.append("Estado", cb_enfermedad_estado.getSelectedItem().toString());
+            db.getCollection("Enfermedades").insertOne(doc);
+            JOptionPane.showMessageDialog(this.jd_animales, "Agregado con Exito");
+            this.tf_enfermedad.setText("");
+            this.ta_enfermedad_tratamiento.setText("");
+        } else {
+            JOptionPane.showMessageDialog(this.jd_animales, "La enfermedad ya existe...");
+        }
+    }//GEN-LAST:event_jButton7MouseClicked
+
+    private void jPanel27ComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_jPanel27ComponentShown
+        // TODO add your handling code here:
+        MongoClientURI uri = new MongoClientURI("mongodb://admin:admin@ds044709.mlab.com:44709/proyectoz");
+        MongoClient zoo = new MongoClient(uri);
+        MongoDatabase db = zoo.getDatabase(uri.getDatabase());
+        DefaultComboBoxModel modelo = new DefaultComboBoxModel();
+        FindIterable<Document> iterable = db.getCollection("Animales").find();
+        iterable.forEach(new Block<Document>() {
+            @Override
+            public void apply(final Document document) {
+                modelo.addElement(document.get("CodigoAnimal"));
+            }
+        });
+        this.cb_enfermedad_codigoAnimal.setModel(modelo);
+    }//GEN-LAST:event_jPanel27ComponentShown
+
+    private void jPanel28ComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_jPanel28ComponentShown
+        // TODO add your handling code here:
+        DefaultTableModel modelo = new DefaultTableModel();
+        modelo.addColumn("Codigo Animal");
+        modelo.addColumn("Enfermedad");
+        modelo.addColumn("Tratamiento");
+        modelo.addColumn("Estado");
+        MongoClientURI uri = new MongoClientURI("mongodb://admin:admin@ds044709.mlab.com:44709/proyectoz");
+        MongoClient zoo = new MongoClient(uri);
+        MongoDatabase db = zoo.getDatabase(uri.getDatabase());
+        FindIterable<Document> iterable = db.getCollection("Enfermedades").find();
+        iterable.forEach(new Block<Document>() {
+            @Override
+            public void apply(final Document doc) {
+                Object[] a = {doc.get("CodigoAnimal"), doc.get("NombreEnfermedad"), doc.get("Tratamiento"), doc.get("Estado")};
+                modelo.addRow(a);
+            }
+        });
+        this.tb_enfermedades.setModel(modelo);
+    }//GEN-LAST:event_jPanel28ComponentShown
+
+    private void cb_animalMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cb_animalMouseClicked
+        // TODO add your handling code here:
+        MongoClientURI uri = new MongoClientURI("mongodb://admin:admin@ds044709.mlab.com:44709/proyectoz");
+        MongoClient zoo = new MongoClient(uri);
+        MongoDatabase db = zoo.getDatabase(uri.getDatabase());
+        BasicDBObject query = new BasicDBObject();
+        query.put("CodigoAnimal", Integer.parseInt(this.cb_animal.getSelectedItem().toString()));
+        DefaultComboBoxModel modelo = new DefaultComboBoxModel();
+        Document doc = db.getCollection("Animales").find(query).first();
+        this.lb_animal.setText(doc.get("Nombre") + "");
+
+        DefaultTableModel tabla = new DefaultTableModel();
+        tabla.addColumn("Codigo");
+        tabla.addColumn("Nombre");
+        tabla.addColumn("Especie");
+        tabla.addColumn("Sub Especie");
+        tabla.addColumn("Continente");
+        tabla.addColumn("Pais");
+
+        query.put("Nombre_Madre", this.lb_animal.getText());
+        FindIterable<Document> iterable = db.getCollection("Animales").find(query);
+        iterable.forEach(new Block<Document>() {
+            @Override
+            public void apply(final Document doc) {
+                Object[] a = {doc.get("CodigoAnimal"), doc.get("Nombre"), doc.get("CodigoEspecie"), doc.get("CodigoSubEspecie"), doc.get("Continente"), doc.get("Pais")};
+                tabla.addRow(a);
+            }
+        });
+        query.put("Nombre_Padre", this.lb_animal.getText());
+        FindIterable<Document> iterable2 = db.getCollection("Animales").find(query);
+        iterable2.forEach(new Block<Document>() {
+            @Override
+            public void apply(final Document doc) {
+                Object[] a = {doc.get("CodigoAnimal"), doc.get("Nombre"), doc.get("CodigoEspecie"), doc.get("CodigoSubEspecie"), doc.get("Continente"), doc.get("Pais")};
+                tabla.addRow(a);
+            }
+        });
+        this.tb_descendientes.setModel(tabla);
+    }//GEN-LAST:event_cb_animalMouseClicked
+
+    private void jPanel29ComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_jPanel29ComponentShown
+        // TODO add your handling code here:
+        MongoClientURI uri = new MongoClientURI("mongodb://admin:admin@ds044709.mlab.com:44709/proyectoz");
+        MongoClient zoo = new MongoClient(uri);
+        MongoDatabase db = zoo.getDatabase(uri.getDatabase());
+        DefaultComboBoxModel modelo = new DefaultComboBoxModel();
+        FindIterable<Document> iterable = db.getCollection("Animales").find();
+        iterable.forEach(new Block<Document>() {
+            @Override
+            public void apply(final Document document) {
+                modelo.addElement(document.get("CodigoAnimal"));
+            }
+        });
+        this.cb_animal.setModel(modelo);
+    }//GEN-LAST:event_jPanel29ComponentShown
+
+    private void bt_entrarAnimalesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_entrarAnimalesActionPerformed
+        dialog(this.jd_animales);
+    }//GEN-LAST:event_bt_entrarAnimalesActionPerformed
+    
+    public void dialog(JDialog a) {
+        a.setModal(true);
+        a.pack();
+        a.setLocationRelativeTo(this);
+        a.setVisible(true);
+    }
+
     /**
      * Ï
      *
@@ -2113,7 +3753,11 @@ public class ParteMario extends javax.swing.JFrame {
     private javax.swing.JDialog Jd_crearDependencia;
     private javax.swing.JTextField Jt_NombreHabitat;
     private javax.swing.JDialog VentanaZoologico;
+    private javax.swing.JButton addAnimal;
+    private javax.swing.JButton bt_EliminarAnimal;
     private javax.swing.JButton bt_agregarEmpleado;
+    private javax.swing.JButton bt_buscarAnimal;
+    private javax.swing.JButton bt_buscarAnimal2;
     private javax.swing.JButton bt_buscarModificarEmpleado;
     private javax.swing.JButton bt_eliminarEmpleados;
     private javax.swing.JButton bt_entrarAnimales;
@@ -2122,18 +3766,36 @@ public class ParteMario extends javax.swing.JFrame {
     private javax.swing.JButton bt_enviarDosis;
     private javax.swing.JButton bt_modificarEmpleado;
     private javax.swing.JComboBox<String> cb_EliminarZona;
+    private javax.swing.JComboBox<String> cb_addAnimal_continente;
+    private javax.swing.JComboBox<String> cb_addAnimal_especie;
+    private javax.swing.JComboBox<String> cb_addAnimal_subEspecie;
+    private javax.swing.JComboBox<String> cb_agregarEspecie_codEspecie;
+    private javax.swing.JComboBox<String> cb_animal;
     private javax.swing.JComboBox<String> cb_animales;
+    private javax.swing.JComboBox<String> cb_buscarAnimal1_especie;
+    private javax.swing.JComboBox<String> cb_buscarAnimal1_subespecie;
+    private javax.swing.JComboBox<String> cb_buscarAnimal_continente;
     private javax.swing.JComboBox<String> cb_dependenciaasignacion;
     private javax.swing.JComboBox<String> cb_dosis;
     private javax.swing.JComboBox<String> cb_eliminarDempendencia;
     private javax.swing.JComboBox<String> cb_eliminarEmpleados;
     private javax.swing.JComboBox<String> cb_eliminarHabitat;
+    private javax.swing.JComboBox<String> cb_enfermedad_codigoAnimal;
+    private javax.swing.JComboBox<String> cb_enfermedad_estado;
     private javax.swing.JComboBox<String> cb_habitatasignacion;
     private javax.swing.JComboBox<String> cb_personalmantenimientoasignar;
     private javax.swing.JComboBox<String> cb_veterinarios;
     private javax.swing.JComboBox<String> cb_zonaDependencia;
     private javax.swing.JComboBox<String> cb_zonaasignacion;
     private javax.swing.JComboBox<String> cb_zonacrearhabitat;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton7;
+    private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -2152,10 +3814,49 @@ public class ParteMario extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel31;
+    private javax.swing.JLabel jLabel32;
+    private javax.swing.JLabel jLabel33;
+    private javax.swing.JLabel jLabel34;
+    private javax.swing.JLabel jLabel35;
+    private javax.swing.JLabel jLabel36;
+    private javax.swing.JLabel jLabel37;
+    private javax.swing.JLabel jLabel38;
+    private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel40;
+    private javax.swing.JLabel jLabel41;
+    private javax.swing.JLabel jLabel42;
+    private javax.swing.JLabel jLabel43;
+    private javax.swing.JLabel jLabel44;
+    private javax.swing.JLabel jLabel45;
+    private javax.swing.JLabel jLabel46;
+    private javax.swing.JLabel jLabel47;
+    private javax.swing.JLabel jLabel48;
+    private javax.swing.JLabel jLabel49;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel50;
+    private javax.swing.JLabel jLabel51;
+    private javax.swing.JLabel jLabel52;
+    private javax.swing.JLabel jLabel53;
+    private javax.swing.JLabel jLabel54;
+    private javax.swing.JLabel jLabel55;
+    private javax.swing.JLabel jLabel56;
+    private javax.swing.JLabel jLabel57;
+    private javax.swing.JLabel jLabel58;
+    private javax.swing.JLabel jLabel59;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel60;
+    private javax.swing.JLabel jLabel61;
+    private javax.swing.JLabel jLabel62;
+    private javax.swing.JLabel jLabel63;
+    private javax.swing.JLabel jLabel64;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
@@ -2168,7 +3869,19 @@ public class ParteMario extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel15;
     private javax.swing.JPanel jPanel16;
     private javax.swing.JPanel jPanel17;
+    private javax.swing.JPanel jPanel18;
+    private javax.swing.JPanel jPanel19;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel20;
+    private javax.swing.JPanel jPanel21;
+    private javax.swing.JPanel jPanel22;
+    private javax.swing.JPanel jPanel23;
+    private javax.swing.JPanel jPanel24;
+    private javax.swing.JPanel jPanel25;
+    private javax.swing.JPanel jPanel26;
+    private javax.swing.JPanel jPanel27;
+    private javax.swing.JPanel jPanel28;
+    private javax.swing.JPanel jPanel29;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
@@ -2177,7 +3890,17 @@ public class ParteMario extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane6;
+    private javax.swing.JScrollPane jScrollPane7;
+    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JTabbedPane jTabbedPane2;
+    private javax.swing.JTabbedPane jTabbedPane3;
+    private javax.swing.JTabbedPane jTabbedPane4;
     private javax.swing.JButton jb_BuscarDependencia;
     private javax.swing.JButton jb_CrearDependencia;
     private javax.swing.JButton jb_CrearZona;
@@ -2207,6 +3930,7 @@ public class ParteMario extends javax.swing.JFrame {
     private javax.swing.JDialog jd_ModificarHabitat;
     private javax.swing.JButton jd_VentanaCrearHbitat;
     private javax.swing.JDialog jd_Zona;
+    private javax.swing.JDialog jd_animales;
     private javax.swing.JDialog jd_crearzona;
     private javax.swing.JDialog jd_eliminarDependencia;
     private javax.swing.JDialog jd_eliminarZona;
@@ -2256,8 +3980,44 @@ public class ParteMario extends javax.swing.JFrame {
     private javax.swing.JTextField jt_sApellidoModificarEmpleado;
     private javax.swing.JTextField jt_sNombreAgregarEmpleado;
     private javax.swing.JTextField jt_sNombreModificarEmpleado;
+    private javax.swing.JTabbedPane jtab_empleados;
+    private javax.swing.JLabel lb_animal;
+    private javax.swing.JLabel lb_enfermedad_nombre;
+    private javax.swing.JLabel lb_especies;
+    private javax.swing.JRadioButton rb_addAnimal_no;
+    private javax.swing.JRadioButton rb_addAnimal_si;
+    private javax.swing.JRadioButton rb_buscarAnimal_no;
+    private javax.swing.JRadioButton rb_buscarAnimal_si;
+    private javax.swing.JSpinner sp_addAnimal_edad;
+    private javax.swing.JSpinner sp_buscarAnimal_edad;
     private javax.swing.JTextArea ta_descripcion;
+    private javax.swing.JTextArea ta_enfermedad_tratamiento;
+    private javax.swing.JTable tb_buscarAnimal;
+    private javax.swing.JTable tb_descendientes;
+    private javax.swing.JTable tb_enfermedades;
+    private javax.swing.JTable tb_especies;
+    private javax.swing.JTable tb_listarEmpleados;
+    private javax.swing.JTextField tf_addAnimal_codigo;
+    private javax.swing.JTextField tf_addAnimal_madre;
+    private javax.swing.JTextField tf_addAnimal_nombre;
+    private javax.swing.JTextField tf_addAnimal_padre;
+    private javax.swing.JTextField tf_addAnimal_pais;
+    private javax.swing.JTextField tf_addAnimal_veterinario;
+    private javax.swing.JTextField tf_agregarEspecie_codEspecie;
+    private javax.swing.JTextField tf_agregarEspecie_codSubEspecie;
+    private javax.swing.JTextField tf_agregarEspecie_nombreEspecie;
+    private javax.swing.JTextField tf_agregarEspecie_nombreSubEspecie;
+    private javax.swing.JTextField tf_buscarAnimal_codigo;
+    private javax.swing.JTextField tf_buscarAnimal_especie;
+    private javax.swing.JTextField tf_buscarAnimal_madre;
+    private javax.swing.JTextField tf_buscarAnimal_nombre;
+    private javax.swing.JTextField tf_buscarAnimal_padre;
+    private javax.swing.JTextField tf_buscarAnimal_pais;
+    private javax.swing.JTextField tf_buscarAnimal_subespecie;
+    private javax.swing.JTextField tf_buscarAnimal_veterinario;
     private javax.swing.JTextField tf_codDieta;
+    private javax.swing.JTextField tf_enfermedad;
     private javax.swing.JTextField tf_porcion;
     // End of variables declaration//GEN-END:variables
+
 }
