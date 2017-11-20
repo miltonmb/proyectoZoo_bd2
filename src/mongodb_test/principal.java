@@ -81,6 +81,20 @@ public class principal extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         cb_eliminarEmpleados = new javax.swing.JComboBox<>();
         bt_eliminarEmpleados = new javax.swing.JButton();
+        jPanel4 = new javax.swing.JPanel();
+        cb_veterinarios = new javax.swing.JComboBox<>();
+        cb_animales = new javax.swing.JComboBox<>();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        ta_descripcion = new javax.swing.JTextArea();
+        cb_dosis = new javax.swing.JComboBox<>();
+        jLabel17 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
+        bt_enviarDosis = new javax.swing.JButton();
+        jLabel20 = new javax.swing.JLabel();
+        tf_porcion = new javax.swing.JTextField();
+        jLabel21 = new javax.swing.JLabel();
+        tf_codDieta = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         bt_entrarPersonal = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
@@ -314,6 +328,105 @@ public class principal extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Eliminar Empleados", jPanel2);
 
+        cb_animales.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cb_animalesActionPerformed(evt);
+            }
+        });
+
+        ta_descripcion.setColumns(20);
+        ta_descripcion.setRows(5);
+        jScrollPane1.setViewportView(ta_descripcion);
+
+        cb_dosis.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cb_dosisActionPerformed(evt);
+            }
+        });
+
+        jLabel17.setText("Veterinario:");
+
+        jLabel18.setText("Dosis:");
+
+        jLabel19.setText("Animal:");
+
+        bt_enviarDosis.setText("Enviar");
+        bt_enviarDosis.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bt_enviarDosisActionPerformed(evt);
+            }
+        });
+
+        jLabel20.setText("Tamaño:");
+
+        jLabel21.setText("Codigo Dieta:");
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel17)
+                                    .addComponent(cb_veterinarios, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(57, 57, 57)
+                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel18)
+                                    .addComponent(cb_dosis, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(bt_enviarDosis, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addGap(39, 39, 39)
+                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(cb_animales, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel19))
+                                .addGap(0, 19, Short.MAX_VALUE))))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(jLabel20)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(tf_porcion, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(49, 49, 49)
+                        .addComponent(jLabel21)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(tf_codDieta, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(25, 25, 25)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel17)
+                    .addComponent(jLabel18)
+                    .addComponent(jLabel19))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cb_veterinarios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cb_dosis, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cb_animales, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel20)
+                    .addComponent(tf_porcion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel21)
+                    .addComponent(tf_codDieta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane1)
+                    .addComponent(bt_enviarDosis, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+
+        jTabbedPane1.addTab("Dietas", jPanel4);
+
         javax.swing.GroupLayout jd_EmpleadosLayout = new javax.swing.GroupLayout(jd_Empleados.getContentPane());
         jd_Empleados.getContentPane().setLayout(jd_EmpleadosLayout);
         jd_EmpleadosLayout.setHorizontalGroup(
@@ -418,6 +531,21 @@ public class principal extends javax.swing.JFrame {
             doc.append("PrimerApellido", pApellido);
             doc.append("SegundoApellido", sApellido);
             doc.append("Cargo", cargo);
+            if ("Veterinario".equals(cargo)) {
+                Document docNuevo = new Document();
+                docNuevo.append("CodigoVeterinario", id);
+                db.getCollection("Veterinarios").insertOne(docNuevo);
+            }
+            if ("Mantenimiento".equals(cargo)) {
+                Document docNuevo = new Document();
+                docNuevo.append("CodigoEmpleado", id);
+                db.getCollection("PersonalMantenimiento").insertOne(docNuevo);
+            }
+            if ("Cuidador".equals(cargo)) {
+                Document docNuevo = new Document();
+                docNuevo.append("CodigoEmpleado", id);
+                db.getCollection("Cuidadores").insertOne(docNuevo);
+            }
             db.getCollection("Empleados").insertOne(doc);
             JOptionPane.showMessageDialog(this.jd_Empleados, "Agregado Exitosamente!");
         } catch (Exception e) {
@@ -436,6 +564,20 @@ public class principal extends javax.swing.JFrame {
             this.cb_eliminarEmpleados.addItem((String) doc.get("CodigoEmpleado"));
             i++;
         }
+        int j = 1;
+        FindIterable<Document> iterDoc2 = db.getCollection("Veterinarios").find();
+        for (Document doc : iterDoc2) {
+            this.cb_veterinarios.addItem((String) doc.get("CodigoVeterinario"));
+            j++;
+        }
+        FindIterable<Document> iterDoc3 = db.getCollection("Animales").find();
+        int k = 1;
+        for (Document doc : iterDoc3) {
+            this.cb_animales.addItem((String) doc.get("CodigoAnimal"));
+            j++;
+        }
+
+
     }//GEN-LAST:event_bt_entrarPersonalActionPerformed
 
     private void bt_modificarEmpleadoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_modificarEmpleadoMouseClicked
@@ -494,6 +636,39 @@ public class principal extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_bt_eliminarEmpleadosActionPerformed
 
+    private void cb_dosisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cb_dosisActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cb_dosisActionPerformed
+
+    private void cb_animalesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cb_animalesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cb_animalesActionPerformed
+
+    private void bt_enviarDosisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_enviarDosisActionPerformed
+        String idVet;
+        String dosis;
+        String idAnimal;
+        String descripcion;
+        String porcion;
+        try {
+            idVet = this.cb_veterinarios.getSelectedItem().toString();
+            dosis = this.cb_dosis.getSelectedItem().toString();
+            idAnimal = this.cb_animales.getSelectedItem().toString();
+            descripcion = this.ta_descripcion.getText();
+            porcion = this.tf_porcion.getText();
+            Document doc = new Document();
+            doc.append("CodigoDieta", this.tf_codDieta.getText());
+            doc.append("CodigoVeterinario", idVet);
+            doc.append("VecesAlDia", dosis);
+            doc.append("Descripcion", descripcion);
+            doc.append("Porcion", porcion);
+            db.getCollection("Dietas").insertOne(doc);
+            JOptionPane.showMessageDialog(this.jd_Empleados, "Agregado!");
+        } catch (Exception e) {
+        }
+
+    }//GEN-LAST:event_bt_enviarDosisActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -536,8 +711,12 @@ public class principal extends javax.swing.JFrame {
     private javax.swing.JButton bt_entrarAnimales;
     private javax.swing.JButton bt_entrarPersonal;
     private javax.swing.JButton bt_entrarZoologico;
+    private javax.swing.JButton bt_enviarDosis;
     private javax.swing.JButton bt_modificarEmpleado;
+    private javax.swing.JComboBox<String> cb_animales;
+    private javax.swing.JComboBox<String> cb_dosis;
     private javax.swing.JComboBox<String> cb_eliminarEmpleados;
+    private javax.swing.JComboBox<String> cb_veterinarios;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -546,7 +725,12 @@ public class principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -557,6 +741,8 @@ public class principal extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JDialog jd_Empleados;
     private javax.swing.JTextField jt_cargoAgregarEmpleado;
@@ -571,5 +757,8 @@ public class principal extends javax.swing.JFrame {
     private javax.swing.JTextField jt_sApellidoModificarEmpleado;
     private javax.swing.JTextField jt_sNombreAgregarEmpleado;
     private javax.swing.JTextField jt_sNombreModificarEmpleado;
+    private javax.swing.JTextArea ta_descripcion;
+    private javax.swing.JTextField tf_codDieta;
+    private javax.swing.JTextField tf_porcion;
     // End of variables declaration//GEN-END:variables
 }
