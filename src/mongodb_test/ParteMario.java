@@ -142,6 +142,54 @@ public class ParteMario extends javax.swing.JFrame {
         jt_ModNombreDependencia = new javax.swing.JTextField();
         jb_BuscarDependencia = new javax.swing.JButton();
         jb_ModDepencia = new javax.swing.JButton();
+        jd_Empleados = new javax.swing.JDialog();
+        jTabbedPane1 = new javax.swing.JTabbedPane();
+        jPanel13 = new javax.swing.JPanel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jt_codAgregarEmpleados = new javax.swing.JTextField();
+        jt_pNombreAgregarEmpleado = new javax.swing.JTextField();
+        jt_sNombreAgregarEmpleado = new javax.swing.JTextField();
+        jt_pApellidoAgregarEmpleado = new javax.swing.JTextField();
+        jt_sApellidoAgregarEmpleado = new javax.swing.JTextField();
+        jt_cargoAgregarEmpleado = new javax.swing.JTextField();
+        bt_agregarEmpleado = new javax.swing.JButton();
+        jPanel14 = new javax.swing.JPanel();
+        jLabel11 = new javax.swing.JLabel();
+        jt_codModificarEmpleados = new javax.swing.JTextField();
+        bt_modificarEmpleado = new javax.swing.JButton();
+        jt_pNombreModificarEmpleado = new javax.swing.JTextField();
+        jt_sNombreModificarEmpleado = new javax.swing.JTextField();
+        jLabel12 = new javax.swing.JLabel();
+        jt_pApellidoModificarEmpleado = new javax.swing.JTextField();
+        jLabel13 = new javax.swing.JLabel();
+        jt_sApellidoModificarEmpleado = new javax.swing.JTextField();
+        jLabel14 = new javax.swing.JLabel();
+        jt_cargoModificarEmpleado = new javax.swing.JTextField();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        bt_buscarModificarEmpleado = new javax.swing.JButton();
+        jPanel15 = new javax.swing.JPanel();
+        cb_eliminarEmpleados = new javax.swing.JComboBox<>();
+        bt_eliminarEmpleados = new javax.swing.JButton();
+        jPanel16 = new javax.swing.JPanel();
+        cb_veterinarios = new javax.swing.JComboBox<>();
+        cb_animales = new javax.swing.JComboBox<>();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        ta_descripcion = new javax.swing.JTextArea();
+        cb_dosis = new javax.swing.JComboBox<>();
+        jLabel17 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
+        bt_enviarDosis = new javax.swing.JButton();
+        jLabel20 = new javax.swing.JLabel();
+        tf_porcion = new javax.swing.JTextField();
+        jLabel21 = new javax.swing.JLabel();
+        tf_codDieta = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         bt_entrarPersonal = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
@@ -936,12 +984,357 @@ public class ParteMario extends javax.swing.JFrame {
             .addComponent(jPanel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
+        jLabel5.setText("Codigo del empleado:");
+
+        jLabel6.setText("Primer nombre:");
+
+        jLabel7.setText("Segundo nombre:");
+
+        jLabel8.setText("Primer apellido:");
+
+        jLabel9.setText("Segundo apellido:");
+
+        jLabel10.setText("Cargo:");
+
+        bt_agregarEmpleado.setText("Agregar");
+        bt_agregarEmpleado.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                bt_agregarEmpleadoMouseClicked(evt);
+            }
+        });
+        bt_agregarEmpleado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bt_agregarEmpleadoActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel13Layout = new javax.swing.GroupLayout(jPanel13);
+        jPanel13.setLayout(jPanel13Layout);
+        jPanel13Layout.setHorizontalGroup(
+            jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel13Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel13Layout.createSequentialGroup()
+                        .addComponent(jLabel5)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jt_codAgregarEmpleados, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel13Layout.createSequentialGroup()
+                        .addComponent(jLabel6)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jt_pNombreAgregarEmpleado))
+                    .addGroup(jPanel13Layout.createSequentialGroup()
+                        .addComponent(jLabel7)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jt_sNombreAgregarEmpleado))
+                    .addGroup(jPanel13Layout.createSequentialGroup()
+                        .addComponent(jLabel8)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jt_pApellidoAgregarEmpleado))
+                    .addGroup(jPanel13Layout.createSequentialGroup()
+                        .addComponent(jLabel9)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jt_sApellidoAgregarEmpleado))
+                    .addGroup(jPanel13Layout.createSequentialGroup()
+                        .addComponent(jLabel10)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jt_cargoAgregarEmpleado)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(bt_agregarEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 89, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        jPanel13Layout.setVerticalGroup(
+            jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel13Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(bt_agregarEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel13Layout.createSequentialGroup()
+                        .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel5)
+                            .addComponent(jt_codAgregarEmpleados, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel6)
+                            .addComponent(jt_pNombreAgregarEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel7)
+                            .addComponent(jt_sNombreAgregarEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel8)
+                            .addComponent(jt_pApellidoAgregarEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel9)
+                            .addComponent(jt_sApellidoAgregarEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel10)
+                            .addComponent(jt_cargoAgregarEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(49, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.addTab("Agregar Empleados", jPanel13);
+
+        jLabel11.setText("Codigo del empleado:");
+
+        bt_modificarEmpleado.setText("Modificar");
+        bt_modificarEmpleado.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                bt_modificarEmpleadoMouseClicked(evt);
+            }
+        });
+        bt_modificarEmpleado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bt_modificarEmpleadoActionPerformed(evt);
+            }
+        });
+
+        jLabel12.setText("Segundo nombre:");
+
+        jLabel13.setText("Primer apellido:");
+
+        jLabel14.setText("Segundo apellido:");
+
+        jLabel15.setText("Cargo:");
+
+        jLabel16.setText("Primer nombre:");
+
+        bt_buscarModificarEmpleado.setText("Buscar");
+        bt_buscarModificarEmpleado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bt_buscarModificarEmpleadoActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel14Layout = new javax.swing.GroupLayout(jPanel14);
+        jPanel14.setLayout(jPanel14Layout);
+        jPanel14Layout.setHorizontalGroup(
+            jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel14Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel14Layout.createSequentialGroup()
+                        .addComponent(jLabel11)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jt_codModificarEmpleados, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel14Layout.createSequentialGroup()
+                        .addComponent(jLabel16)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jt_pNombreModificarEmpleado))
+                    .addGroup(jPanel14Layout.createSequentialGroup()
+                        .addComponent(jLabel12)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jt_sNombreModificarEmpleado))
+                    .addGroup(jPanel14Layout.createSequentialGroup()
+                        .addComponent(jLabel13)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jt_pApellidoModificarEmpleado))
+                    .addGroup(jPanel14Layout.createSequentialGroup()
+                        .addComponent(jLabel14)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jt_sApellidoModificarEmpleado))
+                    .addGroup(jPanel14Layout.createSequentialGroup()
+                        .addComponent(jLabel15)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jt_cargoModificarEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(bt_modificarEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 89, Short.MAX_VALUE)
+                    .addComponent(bt_buscarModificarEmpleado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+        jPanel14Layout.setVerticalGroup(
+            jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel14Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel11)
+                    .addComponent(jt_codModificarEmpleados, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(bt_buscarModificarEmpleado))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel14Layout.createSequentialGroup()
+                        .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jt_pNombreModificarEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel16))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel12)
+                            .addComponent(jt_sNombreModificarEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel13)
+                            .addComponent(jt_pApellidoModificarEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel14)
+                            .addComponent(jt_sApellidoModificarEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jt_cargoModificarEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel15)))
+                    .addComponent(bt_modificarEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(25, 25, 25))
+        );
+
+        jTabbedPane1.addTab("Modificar Empleados", jPanel14);
+
+        bt_eliminarEmpleados.setText("Eliminar");
+        bt_eliminarEmpleados.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bt_eliminarEmpleadosActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel15Layout = new javax.swing.GroupLayout(jPanel15);
+        jPanel15.setLayout(jPanel15Layout);
+        jPanel15Layout.setHorizontalGroup(
+            jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel15Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel15Layout.createSequentialGroup()
+                        .addGap(0, 287, Short.MAX_VALUE)
+                        .addComponent(bt_eliminarEmpleados, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cb_eliminarEmpleados, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+        jPanel15Layout.setVerticalGroup(
+            jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel15Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(cb_eliminarEmpleados, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 176, Short.MAX_VALUE)
+                .addComponent(bt_eliminarEmpleados, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
+        jTabbedPane1.addTab("Eliminar Empleados", jPanel15);
+
+        cb_animales.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cb_animalesActionPerformed(evt);
+            }
+        });
+
+        ta_descripcion.setColumns(20);
+        ta_descripcion.setRows(5);
+        jScrollPane1.setViewportView(ta_descripcion);
+
+        cb_dosis.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cb_dosisActionPerformed(evt);
+            }
+        });
+
+        jLabel17.setText("Veterinario:");
+
+        jLabel18.setText("Dosis:");
+
+        jLabel19.setText("Animal:");
+
+        bt_enviarDosis.setText("Enviar");
+        bt_enviarDosis.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bt_enviarDosisActionPerformed(evt);
+            }
+        });
+
+        jLabel20.setText("Tamaño:");
+
+        jLabel21.setText("Codigo Dieta:");
+
+        javax.swing.GroupLayout jPanel16Layout = new javax.swing.GroupLayout(jPanel16);
+        jPanel16.setLayout(jPanel16Layout);
+        jPanel16Layout.setHorizontalGroup(
+            jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel16Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel16Layout.createSequentialGroup()
+                        .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel16Layout.createSequentialGroup()
+                                .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel17)
+                                    .addComponent(cb_veterinarios, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(57, 57, 57)
+                                .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel18)
+                                    .addComponent(cb_dosis, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(bt_enviarDosis, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(jPanel16Layout.createSequentialGroup()
+                                .addGap(39, 39, 39)
+                                .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(cb_animales, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel19))
+                                .addGap(0, 57, Short.MAX_VALUE))))
+                    .addGroup(jPanel16Layout.createSequentialGroup()
+                        .addComponent(jLabel20)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(tf_porcion, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(49, 49, 49)
+                        .addComponent(jLabel21)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(tf_codDieta, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        jPanel16Layout.setVerticalGroup(
+            jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel16Layout.createSequentialGroup()
+                .addGap(25, 25, 25)
+                .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel17)
+                    .addComponent(jLabel18)
+                    .addComponent(jLabel19))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cb_veterinarios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cb_dosis, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cb_animales, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 69, Short.MAX_VALUE)
+                .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel20)
+                    .addComponent(tf_porcion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel21)
+                    .addComponent(tf_codDieta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane1)
+                    .addComponent(bt_enviarDosis, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+
+        jTabbedPane1.addTab("Dietas", jPanel16);
+
+        javax.swing.GroupLayout jd_EmpleadosLayout = new javax.swing.GroupLayout(jd_Empleados.getContentPane());
+        jd_Empleados.getContentPane().setLayout(jd_EmpleadosLayout);
+        jd_EmpleadosLayout.setHorizontalGroup(
+            jd_EmpleadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jTabbedPane1)
+        );
+        jd_EmpleadosLayout.setVerticalGroup(
+            jd_EmpleadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jTabbedPane1)
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel1.setText("Sistema de Mantenimiento del Zoologico de Cordoba");
 
         bt_entrarPersonal.setText("Entrar");
+        bt_entrarPersonal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bt_entrarPersonalActionPerformed(evt);
+            }
+        });
 
         jLabel2.setText("Personal:");
 
@@ -1343,7 +1736,166 @@ public class ParteMario extends javax.swing.JFrame {
         this.jd_eliminarDependencia.setVisible(true);
     }//GEN-LAST:event_jb_VTEliminarDependenciaActionPerformed
 
+    private void bt_agregarEmpleadoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_agregarEmpleadoMouseClicked
+        String id, pNombre, sNombre, pApellido, sApellido, cargo;
+        try {
+            id = this.jt_codAgregarEmpleados.getText();
+            pNombre = this.jt_pNombreAgregarEmpleado.getText();
+            sNombre = this.jt_sNombreAgregarEmpleado.getText();
+            pApellido = this.jt_pApellidoAgregarEmpleado.getText();
+            sApellido = this.jt_sApellidoAgregarEmpleado.getText();
+            cargo = this.jt_cargoAgregarEmpleado.getText();
+            Document doc = new Document();
+            doc.append("CodigoEmpleado", id);
+            doc.append("PrimerNombre", pNombre);
+            doc.append("SegundoNombre", sNombre);
+            doc.append("PrimerApellido", pApellido);
+            doc.append("SegundoApellido", sApellido);
+            doc.append("Cargo", cargo);
+            if ("Veterinario".equals(cargo)) {
+                Document docNuevo = new Document();
+                docNuevo.append("CodigoVeterinario", id);
+                db.getCollection("Veterinarios").insertOne(docNuevo);
+            }
+            if ("Mantenimiento".equals(cargo)) {
+                Document docNuevo = new Document();
+                docNuevo.append("CodigoEmpleado", id);
+                db.getCollection("PersonalMantenimiento").insertOne(docNuevo);
+            }
+            if ("Cuidador".equals(cargo)) {
+                Document docNuevo = new Document();
+                docNuevo.append("CodigoEmpleado", id);
+                db.getCollection("Cuidadores").insertOne(docNuevo);
+            }
+            db.getCollection("Empleados").insertOne(doc);
+            JOptionPane.showMessageDialog(this.jd_Empleados, "Agregado Exitosamente!");
+        } catch (Exception e) {
+        }
+    }//GEN-LAST:event_bt_agregarEmpleadoMouseClicked
+
+    private void bt_modificarEmpleadoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_modificarEmpleadoMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_bt_modificarEmpleadoMouseClicked
+
+    private void bt_modificarEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_modificarEmpleadoActionPerformed
+        String codEmpleado = this.jt_codModificarEmpleados.getText();
+        String pNombre, sNombre, pApellido, sApellido, cargo;
+        try {
+            pNombre = this.jt_pNombreModificarEmpleado.getText();
+            sNombre = this.jt_sNombreModificarEmpleado.getText();
+            pApellido = this.jt_pApellidoModificarEmpleado.getText();
+            sApellido = this.jt_sApellidoModificarEmpleado.getText();
+            cargo = this.jt_cargoModificarEmpleado.getText();
+            db.getCollection("Empleados").updateOne(Filters.eq("CodigoEmpleado", codEmpleado), Updates.set("PrimerNombre", pNombre));
+            db.getCollection("Empleados").updateOne(Filters.eq("CodigoEmpleado", codEmpleado), Updates.set("SegundoNombre", sNombre));
+            db.getCollection("Empleados").updateOne(Filters.eq("CodigoEmpleado", codEmpleado), Updates.set("PrimerApellido", pApellido));
+            db.getCollection("Empleados").updateOne(Filters.eq("CodigoEmpleado", codEmpleado), Updates.set("SegundoApellido", sApellido));
+            db.getCollection("Empleados").updateOne(Filters.eq("CodigoEmpleado", codEmpleado), Updates.set("Cargo", cargo));
+            JOptionPane.showMessageDialog(this.jd_Empleados, "Modificado Exitosamente!");
+        } catch (Exception e) {
+
+        }
+    }//GEN-LAST:event_bt_modificarEmpleadoActionPerformed
+
+    private void bt_buscarModificarEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_buscarModificarEmpleadoActionPerformed
+        String codEmpleado;
+        try {
+            codEmpleado = this.jt_codModificarEmpleados.getText();
+            BasicDBObject query = new BasicDBObject();
+            query.put("CodigoEmpleado", codEmpleado);
+            System.out.println();
+            Document doc = db.getCollection("Empleados").find(query).first();
+            this.jt_pNombreModificarEmpleado.setText((String) doc.get("PrimerNombre"));
+            this.jt_sNombreModificarEmpleado.setText((String) doc.get("SegundoNombre"));
+            this.jt_pApellidoModificarEmpleado.setText((String) doc.get("PrimerApellido"));
+            this.jt_sApellidoModificarEmpleado.setText((String) doc.get("SegundoApellido"));
+            this.jt_cargoModificarEmpleado.setText((String) doc.get("Cargo"));
+            JOptionPane.showMessageDialog(this.jd_Empleados, "Encontrado!");
+        } catch (Exception e) {
+
+        }
+    }//GEN-LAST:event_bt_buscarModificarEmpleadoActionPerformed
+
+    private void bt_eliminarEmpleadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_eliminarEmpleadosActionPerformed
+        String codEmpleado = this.cb_eliminarEmpleados.getSelectedItem().toString();
+        int opcion;
+        try {
+            opcion = JOptionPane.showConfirmDialog(this.jd_Empleados, "¿Desea Borrarlo?", "Borrar", YES_NO_OPTION);
+            if (opcion == 0) {
+                db.getCollection("Empleados").deleteOne(Filters.eq("CodigoEmpleado", codEmpleado));
+                JOptionPane.showMessageDialog(this.jd_Empleados, "Eliminado!");
+            }
+        } catch (Exception e) {
+        }
+    }//GEN-LAST:event_bt_eliminarEmpleadosActionPerformed
+
+    private void cb_animalesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cb_animalesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cb_animalesActionPerformed
+
+    private void cb_dosisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cb_dosisActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cb_dosisActionPerformed
+
+    private void bt_enviarDosisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_enviarDosisActionPerformed
+        String idVet;
+        String dosis;
+        String idAnimal;
+        String descripcion;
+        String porcion;
+        try {
+            idVet = this.cb_veterinarios.getSelectedItem().toString();
+            dosis = this.cb_dosis.getSelectedItem().toString();
+            idAnimal = this.cb_animales.getSelectedItem().toString();
+            descripcion = this.ta_descripcion.getText();
+            porcion = this.tf_porcion.getText();
+            Document doc = new Document();
+            doc.append("CodigoDieta", this.tf_codDieta.getText());
+            doc.append("CodigoVeterinario", idVet);
+            doc.append("VecesAlDia", dosis);
+            doc.append("Descripcion", descripcion);
+            doc.append("Porcion", porcion);
+            db.getCollection("Dietas").insertOne(doc);
+            JOptionPane.showMessageDialog(this.jd_Empleados, "Agregado!");
+        } catch (Exception e) {
+        }
+    }//GEN-LAST:event_bt_enviarDosisActionPerformed
+
+    private void bt_entrarPersonalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_entrarPersonalActionPerformed
+        this.jd_Empleados.setResizable(false);
+        this.jd_Empleados.setLocationRelativeTo(this);
+        this.jd_Empleados.pack();
+        this.jd_Empleados.setVisible(true);
+        ComboBoxModel model = this.cb_eliminarEmpleados.getModel();
+        FindIterable<Document> iterDoc = db.getCollection("Empleados").find();
+        int i = 1;
+        for (Document doc : iterDoc) {
+            this.cb_eliminarEmpleados.addItem((String) doc.get("CodigoEmpleado"));
+            i++;
+        }
+        int j = 1;
+        FindIterable<Document> iterDoc2 = db.getCollection("Veterinarios").find();
+        for (Document doc : iterDoc2) {
+            this.cb_veterinarios.addItem((String) doc.get("CodigoVeterinario"));
+            j++;
+        }
+        FindIterable<Document> iterDoc3 = db.getCollection("Animales").find();
+        int k = 1;
+        for (Document doc : iterDoc3) {
+            this.cb_animales.addItem((String) doc.get("CodigoAnimal"));
+            j++;
+        }
+
+
+    }//GEN-LAST:event_bt_entrarPersonalActionPerformed
+
+    private void bt_agregarEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_agregarEmpleadoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_bt_agregarEmpleadoActionPerformed
+
     /**
+     * Ï
+     *
      * @param args the command line arguments
      */
     public static void main(String args[]) {
@@ -1388,22 +1940,52 @@ public class ParteMario extends javax.swing.JFrame {
     private javax.swing.JDialog Jd_crearDependencia;
     private javax.swing.JTextField Jt_NombreHabitat;
     private javax.swing.JDialog VentanaZoologico;
+    private javax.swing.JButton bt_agregarEmpleado;
+    private javax.swing.JButton bt_buscarModificarEmpleado;
+    private javax.swing.JButton bt_eliminarEmpleados;
     private javax.swing.JButton bt_entrarAnimales;
     private javax.swing.JButton bt_entrarPersonal;
     private javax.swing.JButton bt_entrarZoologico;
+    private javax.swing.JButton bt_enviarDosis;
+    private javax.swing.JButton bt_modificarEmpleado;
     private javax.swing.JComboBox<String> cb_EliminarZona;
+    private javax.swing.JComboBox<String> cb_animales;
+    private javax.swing.JComboBox<String> cb_dosis;
     private javax.swing.JComboBox<String> cb_eliminarDempendencia;
+    private javax.swing.JComboBox<String> cb_eliminarEmpleados;
     private javax.swing.JComboBox<String> cb_eliminarHabitat;
+    private javax.swing.JComboBox<String> cb_veterinarios;
     private javax.swing.JComboBox<String> cb_zonaDependencia;
     private javax.swing.JComboBox<String> cb_zonacrearhabitat;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel12;
+    private javax.swing.JPanel jPanel13;
+    private javax.swing.JPanel jPanel14;
+    private javax.swing.JPanel jPanel15;
+    private javax.swing.JPanel jPanel16;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
@@ -1412,6 +1994,8 @@ public class ParteMario extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JButton jb_BuscarDependencia;
     private javax.swing.JButton jb_CrearDependencia;
     private javax.swing.JButton jb_CrearZona;
@@ -1434,6 +2018,7 @@ public class ParteMario extends javax.swing.JFrame {
     private javax.swing.JButton jb_eliminarzonas;
     private javax.swing.JButton jb_modificarZonas;
     private javax.swing.JDialog jd_EliminarHabitat;
+    private javax.swing.JDialog jd_Empleados;
     private javax.swing.JDialog jd_Habitats;
     private javax.swing.JDialog jd_ModificarHabitat;
     private javax.swing.JButton jd_VentanaCrearHbitat;
@@ -1470,9 +2055,24 @@ public class ParteMario extends javax.swing.JFrame {
     private javax.swing.JTextField jt_ModNombreDependencia;
     private javax.swing.JTextField jt_ModNombreHabitat;
     private javax.swing.JTextField jt_NombreDependencia;
+    private javax.swing.JTextField jt_cargoAgregarEmpleado;
+    private javax.swing.JTextField jt_cargoModificarEmpleado;
+    private javax.swing.JTextField jt_codAgregarEmpleados;
+    private javax.swing.JTextField jt_codModificarEmpleados;
     private javax.swing.JTextField jt_codigozona;
     private javax.swing.JTextField jt_idDependencia;
     private javax.swing.JTextField jt_nombreModificarZona;
     private javax.swing.JTextField jt_nombrezona;
+    private javax.swing.JTextField jt_pApellidoAgregarEmpleado;
+    private javax.swing.JTextField jt_pApellidoModificarEmpleado;
+    private javax.swing.JTextField jt_pNombreAgregarEmpleado;
+    private javax.swing.JTextField jt_pNombreModificarEmpleado;
+    private javax.swing.JTextField jt_sApellidoAgregarEmpleado;
+    private javax.swing.JTextField jt_sApellidoModificarEmpleado;
+    private javax.swing.JTextField jt_sNombreAgregarEmpleado;
+    private javax.swing.JTextField jt_sNombreModificarEmpleado;
+    private javax.swing.JTextArea ta_descripcion;
+    private javax.swing.JTextField tf_codDieta;
+    private javax.swing.JTextField tf_porcion;
     // End of variables declaration//GEN-END:variables
 }
