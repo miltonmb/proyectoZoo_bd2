@@ -65,6 +65,7 @@ public class ParteMario extends javax.swing.JFrame {
         Jb_VentanaZona = new javax.swing.JButton();
         jb_VentanaHabitat = new javax.swing.JButton();
         jb_VentanaDependencia = new javax.swing.JButton();
+        jb_asignacionpersonal = new javax.swing.JButton();
         jd_eliminarZona = new javax.swing.JDialog();
         jPanel4 = new javax.swing.JPanel();
         cb_EliminarZona = new javax.swing.JComboBox<>();
@@ -190,6 +191,17 @@ public class ParteMario extends javax.swing.JFrame {
         tf_porcion = new javax.swing.JTextField();
         jLabel21 = new javax.swing.JLabel();
         tf_codDieta = new javax.swing.JTextField();
+        jd_ventanaasignacion = new javax.swing.JDialog();
+        jPanel17 = new javax.swing.JPanel();
+        jb_asignamantenimiento = new javax.swing.JButton();
+        cb_zonaasignacion = new javax.swing.JComboBox<>();
+        cb_habitatasignacion = new javax.swing.JComboBox<>();
+        cb_dependenciaasignacion = new javax.swing.JComboBox<>();
+        jLabel22 = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
+        jLabel24 = new javax.swing.JLabel();
+        jLabel25 = new javax.swing.JLabel();
+        cb_personalmantenimientoasignar = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
         bt_entrarPersonal = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
@@ -278,6 +290,13 @@ public class ParteMario extends javax.swing.JFrame {
             }
         });
 
+        jb_asignacionpersonal.setText("Asignacion de Personal");
+        jb_asignacionpersonal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jb_asignacionpersonalActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -287,19 +306,22 @@ public class ParteMario extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(Jb_VentanaZona, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jb_VentanaDependencia, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jb_VentanaHabitat, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(57, Short.MAX_VALUE))
+                    .addComponent(jb_VentanaHabitat, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jb_asignacionpersonal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(56, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(71, 71, 71)
+                .addGap(40, 40, 40)
                 .addComponent(Jb_VentanaZona)
-                .addGap(44, 44, 44)
+                .addGap(36, 36, 36)
                 .addComponent(jb_VentanaDependencia)
-                .addGap(35, 35, 35)
+                .addGap(39, 39, 39)
                 .addComponent(jb_VentanaHabitat)
-                .addContainerGap(83, Short.MAX_VALUE))
+                .addGap(34, 34, 34)
+                .addComponent(jb_asignacionpersonal)
+                .addContainerGap(55, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout VentanaZoologicoLayout = new javax.swing.GroupLayout(VentanaZoologico.getContentPane());
@@ -1040,7 +1062,7 @@ public class ParteMario extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jt_cargoAgregarEmpleado)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(bt_agregarEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 89, Short.MAX_VALUE)
+                .addComponent(bt_agregarEmpleado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel13Layout.setVerticalGroup(
@@ -1322,6 +1344,93 @@ public class ParteMario extends javax.swing.JFrame {
         jd_EmpleadosLayout.setVerticalGroup(
             jd_EmpleadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jTabbedPane1)
+        );
+
+        jb_asignamantenimiento.setText("Asignar");
+        jb_asignamantenimiento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jb_asignamantenimientoActionPerformed(evt);
+            }
+        });
+
+        cb_zonaasignacion.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cb_zonaasignacionItemStateChanged(evt);
+            }
+        });
+
+        cb_habitatasignacion.setEnabled(false);
+        cb_habitatasignacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cb_habitatasignacionActionPerformed(evt);
+            }
+        });
+
+        cb_dependenciaasignacion.setEnabled(false);
+
+        jLabel22.setText("Personal Mantenimiento");
+
+        jLabel23.setText("Dependencia");
+
+        jLabel24.setText("Habitat");
+
+        jLabel25.setText("Zona");
+
+        javax.swing.GroupLayout jPanel17Layout = new javax.swing.GroupLayout(jPanel17);
+        jPanel17.setLayout(jPanel17Layout);
+        jPanel17Layout.setHorizontalGroup(
+            jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel17Layout.createSequentialGroup()
+                .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel17Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(cb_zonaasignacion, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel25)
+                            .addComponent(jLabel22)
+                            .addComponent(jLabel23)
+                            .addComponent(jLabel24)
+                            .addComponent(cb_habitatasignacion, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(cb_dependenciaasignacion, 0, 260, Short.MAX_VALUE)
+                            .addComponent(cb_personalmantenimientoasignar, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(jPanel17Layout.createSequentialGroup()
+                        .addGap(106, 106, 106)
+                        .addComponent(jb_asignamantenimiento)))
+                .addContainerGap(56, Short.MAX_VALUE))
+        );
+        jPanel17Layout.setVerticalGroup(
+            jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel17Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel25)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(cb_zonaasignacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel24)
+                .addGap(18, 18, 18)
+                .addComponent(cb_habitatasignacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel23)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(cb_dependenciaasignacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel22)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(cb_personalmantenimientoasignar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
+                .addComponent(jb_asignamantenimiento)
+                .addContainerGap())
+        );
+
+        javax.swing.GroupLayout jd_ventanaasignacionLayout = new javax.swing.GroupLayout(jd_ventanaasignacion.getContentPane());
+        jd_ventanaasignacion.getContentPane().setLayout(jd_ventanaasignacionLayout);
+        jd_ventanaasignacionLayout.setHorizontalGroup(
+            jd_ventanaasignacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel17, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        jd_ventanaasignacionLayout.setVerticalGroup(
+            jd_ventanaasignacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel17, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -1882,7 +1991,7 @@ public class ParteMario extends javax.swing.JFrame {
         FindIterable<Document> iterDoc3 = db.getCollection("Animales").find();
         int k = 1;
         for (Document doc : iterDoc3) {
-            this.cb_animales.addItem((String) doc.get("CodigoAnimal"));
+            this.cb_animales.addItem(doc.get("CodigoAnimal") + "");
             j++;
         }
 
@@ -1892,6 +2001,70 @@ public class ParteMario extends javax.swing.JFrame {
     private void bt_agregarEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_agregarEmpleadoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_bt_agregarEmpleadoActionPerformed
+
+    private void cb_habitatasignacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cb_habitatasignacionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cb_habitatasignacionActionPerformed
+
+    private void cb_zonaasignacionItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cb_zonaasignacionItemStateChanged
+        if (cb_zonaasignacion.getSelectedIndex() == 0) {
+            cb_dependenciaasignacion.removeAllItems();
+            cb_dependenciaasignacion.setEnabled(false);
+            cb_habitatasignacion.removeAllItems();
+            cb_habitatasignacion.setEnabled(false);
+        } else {
+            cb_dependenciaasignacion.removeAllItems();
+            cb_habitatasignacion.removeAllItems();
+            this.cb_dependenciaasignacion.addItem("Ninguna");
+            this.cb_habitatasignacion.addItem("Ninguna");
+            int CodZona = Integer.parseInt(cb_zonaasignacion.getSelectedItem().toString());
+            BasicDBObject query = new BasicDBObject();
+            query.put("CodigoZona", CodZona);
+            ComboBoxModel model = this.cb_dependenciaasignacion.getModel();
+            FindIterable<Document> iterDoc = db.getCollection("Dependencias").find(query);
+            int i = 1;
+            for (Document doc : iterDoc) {
+                this.cb_dependenciaasignacion.addItem(doc.get("CodigoDependencia") + "");
+                i++;
+            }
+            ComboBoxModel model2 = this.cb_habitatasignacion.getModel();
+            FindIterable<Document> iterDoc2 = db.getCollection("Habitat").find(query);
+            int j = 1;
+            for (Document doc : iterDoc2) {
+                this.cb_habitatasignacion.addItem(doc.get("CodigoHabitat") + "");
+                j++;
+            }
+            cb_dependenciaasignacion.setEnabled(true);
+            cb_habitatasignacion.setEnabled(true);
+        }
+    }//GEN-LAST:event_cb_zonaasignacionItemStateChanged
+
+    private void jb_asignacionpersonalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_asignacionpersonalActionPerformed
+        cb_zonaasignacion.removeAllItems();
+        this.cb_zonaasignacion.addItem("Ninguna");
+        ComboBoxModel model = this.cb_zonaasignacion.getModel();
+        FindIterable<Document> iterDoc = db.getCollection("Zonas").find();
+        int i = 1;
+        for (Document doc : iterDoc) {
+            this.cb_zonaasignacion.addItem(doc.get("CodigoZona").toString());
+            i++;
+        }
+        ComboBoxModel model2 = this.cb_personalmantenimientoasignar.getModel();
+        FindIterable<Document> iterDoc2 = db.getCollection("PersonalMantenimiento").find();
+        int j = 1;
+        for (Document doc : iterDoc2) {
+            this.cb_personalmantenimientoasignar.addItem(doc.get("CodigoEmpleado").toString());
+            j++;
+        }
+        this.jd_ventanaasignacion.pack();
+        this.jd_ventanaasignacion.setResizable(false);
+        this.jd_ventanaasignacion.setLocationRelativeTo(this);
+        this.jd_ventanaasignacion.setVisible(true);
+    }//GEN-LAST:event_jb_asignacionpersonalActionPerformed
+
+    private void jb_asignamantenimientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_asignamantenimientoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jb_asignamantenimientoActionPerformed
 
     /**
      * Ï
@@ -1950,12 +2123,16 @@ public class ParteMario extends javax.swing.JFrame {
     private javax.swing.JButton bt_modificarEmpleado;
     private javax.swing.JComboBox<String> cb_EliminarZona;
     private javax.swing.JComboBox<String> cb_animales;
+    private javax.swing.JComboBox<String> cb_dependenciaasignacion;
     private javax.swing.JComboBox<String> cb_dosis;
     private javax.swing.JComboBox<String> cb_eliminarDempendencia;
     private javax.swing.JComboBox<String> cb_eliminarEmpleados;
     private javax.swing.JComboBox<String> cb_eliminarHabitat;
+    private javax.swing.JComboBox<String> cb_habitatasignacion;
+    private javax.swing.JComboBox<String> cb_personalmantenimientoasignar;
     private javax.swing.JComboBox<String> cb_veterinarios;
     private javax.swing.JComboBox<String> cb_zonaDependencia;
+    private javax.swing.JComboBox<String> cb_zonaasignacion;
     private javax.swing.JComboBox<String> cb_zonacrearhabitat;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -1971,6 +2148,10 @@ public class ParteMario extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -1986,6 +2167,7 @@ public class ParteMario extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel14;
     private javax.swing.JPanel jPanel15;
     private javax.swing.JPanel jPanel16;
+    private javax.swing.JPanel jPanel17;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
@@ -2009,6 +2191,8 @@ public class ParteMario extends javax.swing.JFrame {
     private javax.swing.JButton jb_VentanaHabitat;
     private javax.swing.JButton jb_VentanaModificarHabitat;
     private javax.swing.JButton jb_VtcrearDependenica;
+    private javax.swing.JButton jb_asignacionpersonal;
+    private javax.swing.JButton jb_asignamantenimiento;
     private javax.swing.JButton jb_buscarModificarZ;
     private javax.swing.JButton jb_buscarhabitat;
     private javax.swing.JButton jb_crearZ;
@@ -2027,6 +2211,7 @@ public class ParteMario extends javax.swing.JFrame {
     private javax.swing.JDialog jd_eliminarDependencia;
     private javax.swing.JDialog jd_eliminarZona;
     private javax.swing.JDialog jd_modifcarzona;
+    private javax.swing.JDialog jd_ventanaasignacion;
     private javax.swing.JLabel jl_codigodependencia;
     private javax.swing.JLabel jl_codigohabitat;
     private javax.swing.JLabel jl_idModificarZ;
