@@ -43,10 +43,6 @@ public class ParteMario extends javax.swing.JFrame {
         client = new MongoClient(uri);
 
         db = client.getDatabase(uri.getDatabase());
-        BasicDBObject query = new BasicDBObject();
-        query.put("CodigoAnimal", 1);
-        Document doc = db.getCollection("Animales").find(query).first();
-        System.out.println(doc.get("CodigoEspecie").toString());
         initComponents();
     }
 
@@ -196,9 +192,6 @@ public class ParteMario extends javax.swing.JFrame {
         tf_porcion = new javax.swing.JTextField();
         jLabel21 = new javax.swing.JLabel();
         tf_codDieta = new javax.swing.JTextField();
-        jPanel18 = new javax.swing.JPanel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        tb_listarEmpleados = new javax.swing.JTable();
         jd_ventanaasignacion = new javax.swing.JDialog();
         jPanel17 = new javax.swing.JPanel();
         jb_asignamantenimiento = new javax.swing.JButton();
@@ -330,6 +323,15 @@ public class ParteMario extends javax.swing.JFrame {
         jScrollPane7 = new javax.swing.JScrollPane();
         tb_descendientes = new javax.swing.JTable();
         jLabel64 = new javax.swing.JLabel();
+        jPanel30 = new javax.swing.JPanel();
+        jLabel71 = new javax.swing.JLabel();
+        jLabel70 = new javax.swing.JLabel();
+        cb_alimentacion_animal = new javax.swing.JComboBox<>();
+        cb_alimentacion_dieta = new javax.swing.JComboBox<>();
+        jLabel72 = new javax.swing.JLabel();
+        dc_alimentacion_fecha = new com.toedter.calendar.JDateChooser();
+        jLabel74 = new javax.swing.JLabel();
+        jButton8 = new javax.swing.JButton();
         jd_asignarhabitat = new javax.swing.JDialog();
         cb_asignarespeciehabitat = new javax.swing.JComboBox<>();
         cb_asignarsubespeciehabitat = new javax.swing.JComboBox<>();
@@ -1397,6 +1399,7 @@ public class ParteMario extends javax.swing.JFrame {
         ta_descripcion.setRows(5);
         jScrollPane1.setViewportView(ta_descripcion);
 
+        cb_dosis.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3" }));
         cb_dosis.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cb_dosisActionPerformed(evt);
@@ -1486,49 +1489,6 @@ public class ParteMario extends javax.swing.JFrame {
 
         jtab_empleados.addTab("Dietas", jPanel16);
 
-        tb_listarEmpleados.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "Codigo Empleado", "Primer nombre", "Segundo nombre", "Primer Apellido", "Segundo Apellido", "Cargo"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
-            };
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        jScrollPane2.setViewportView(tb_listarEmpleados);
-
-        javax.swing.GroupLayout jPanel18Layout = new javax.swing.GroupLayout(jPanel18);
-        jPanel18.setLayout(jPanel18Layout);
-        jPanel18Layout.setHorizontalGroup(
-            jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel18Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 429, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel18Layout.setVerticalGroup(
-            jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel18Layout.createSequentialGroup()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 313, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-
-        jtab_empleados.addTab("Listar empleados", jPanel18);
-
         javax.swing.GroupLayout jd_EmpleadosLayout = new javax.swing.GroupLayout(jd_Empleados.getContentPane());
         jd_Empleados.getContentPane().setLayout(jd_EmpleadosLayout);
         jd_EmpleadosLayout.setHorizontalGroup(
@@ -1537,7 +1497,7 @@ public class ParteMario extends javax.swing.JFrame {
         );
         jd_EmpleadosLayout.setVerticalGroup(
             jd_EmpleadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jtab_empleados, javax.swing.GroupLayout.DEFAULT_SIZE, 380, Short.MAX_VALUE)
+            .addComponent(jtab_empleados)
         );
 
         jb_asignamantenimiento.setText("Asignar");
@@ -2549,6 +2509,77 @@ public class ParteMario extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("descendencia", jPanel29);
 
+        jPanel30.addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentShown(java.awt.event.ComponentEvent evt) {
+                jPanel30ComponentShown(evt);
+            }
+        });
+
+        jLabel71.setText("Codigo de la dienta");
+
+        jLabel70.setText("Codigo del Animal");
+
+        jLabel72.setText("Fecha de inicio");
+
+        jLabel74.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel74.setText("Agregar Alimentacion");
+
+        jButton8.setText("Agregar");
+        jButton8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton8MouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel30Layout = new javax.swing.GroupLayout(jPanel30);
+        jPanel30.setLayout(jPanel30Layout);
+        jPanel30Layout.setHorizontalGroup(
+            jPanel30Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel30Layout.createSequentialGroup()
+                .addGroup(jPanel30Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel30Layout.createSequentialGroup()
+                        .addGap(214, 214, 214)
+                        .addComponent(jLabel74))
+                    .addGroup(jPanel30Layout.createSequentialGroup()
+                        .addGap(23, 23, 23)
+                        .addGroup(jPanel30Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel30Layout.createSequentialGroup()
+                                .addComponent(jLabel70)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(cb_alimentacion_animal, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel71)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(cb_alimentacion_dieta, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel30Layout.createSequentialGroup()
+                                .addComponent(jLabel72)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(dc_alimentacion_fecha, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jButton8))))
+                .addContainerGap(172, Short.MAX_VALUE))
+        );
+        jPanel30Layout.setVerticalGroup(
+            jPanel30Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel30Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel74)
+                .addGap(29, 29, 29)
+                .addGroup(jPanel30Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel70)
+                    .addComponent(cb_alimentacion_animal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel71)
+                    .addComponent(cb_alimentacion_dieta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel30Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel72)
+                    .addComponent(dc_alimentacion_fecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(9, 9, 9)
+                .addComponent(jButton8)
+                .addContainerGap(132, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.addTab("Alimentacion", jPanel30);
+
         javax.swing.GroupLayout jd_animalesLayout = new javax.swing.GroupLayout(jd_animales.getContentPane());
         jd_animales.getContentPane().setLayout(jd_animalesLayout);
         jd_animalesLayout.setHorizontalGroup(
@@ -2562,7 +2593,7 @@ public class ParteMario extends javax.swing.JFrame {
             jd_animalesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jd_animalesLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 305, Short.MAX_VALUE)
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 305, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -2678,7 +2709,7 @@ public class ParteMario extends javax.swing.JFrame {
                             .addComponent(jLabel2))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(bt_entrarAnimales, javax.swing.GroupLayout.DEFAULT_SIZE, 101, Short.MAX_VALUE)
+                            .addComponent(bt_entrarAnimales, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(bt_entrarZoologico, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(bt_entrarPersonal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(layout.createSequentialGroup()
@@ -2749,16 +2780,33 @@ public class ParteMario extends javax.swing.JFrame {
         long codigoZona = Integer.parseInt(jt_codigozona.getText());
         String nombre = jt_nombrezona.getText();
         try {
-            Document doc = new Document();
-            doc.append("CodigoZona", codigoZona);
-            doc.append("Nombre", nombre);
-            db.getCollection("Zonas").insertOne(doc);
-            JOptionPane.showMessageDialog(this.jd_crearzona, "Creada Exitosamente");
-            jt_nombrezona.setText("");
-            jt_codigozona.setText("");
-            jd_crearzona.setVisible(false);
+            bandera = true;
+            FindIterable<Document> iterable = db.getCollection("Zonas").find();
+            iterable.forEach(new Block<Document>() {
+                @Override
+                public void apply(final Document doc3) {
+                    System.out.println(doc3.get("Nombre").toString());
+                    if (doc3.get("Nombre").toString().equals(nombre)) {
+                        bandera = false;
+                    }
+                }
+            });
+            if (bandera) {
+           
+                Document doc = new Document();
+                doc.append("CodigoZona", codigoZona);
+                doc.append("Nombre", nombre);
+                db.getCollection("Zonas").insertOne(doc);
+                JOptionPane.showMessageDialog(this.jd_crearzona, "Creada Exitosamente");
+                jt_nombrezona.setText("");
+                jt_codigozona.setText("");
+                jd_crearzona.setVisible(false);
+            }else{
+                JOptionPane.showMessageDialog(this.jd_crearzona, "Nombre ya existe");
+            }
         } catch (Exception e) {
             e.printStackTrace();
+            JOptionPane.showMessageDialog(this.jd_crearzona, "Codigo ya existe");
         }
     }//GEN-LAST:event_jb_crearZActionPerformed
 
@@ -2876,6 +2924,7 @@ public class ParteMario extends javax.swing.JFrame {
             Jd_CrearHabitat.setVisible(false);
         } catch (Exception e) {
             e.printStackTrace();
+            JOptionPane.showMessageDialog(this.jd_crearzona, "Codigo ya existe");
         }
     }//GEN-LAST:event_jb_crearhabitatActionPerformed
 
@@ -2960,6 +3009,7 @@ public class ParteMario extends javax.swing.JFrame {
             Jd_crearDependencia.setVisible(false);
         } catch (Exception e) {
             e.printStackTrace();
+            JOptionPane.showMessageDialog(this.jd_crearzona, "Codigo ya existe");
         }
     }//GEN-LAST:event_jb_CrearDependenciaActionPerformed
 
@@ -3051,132 +3101,6 @@ public class ParteMario extends javax.swing.JFrame {
         this.jd_eliminarDependencia.setVisible(true);
     }//GEN-LAST:event_jb_VTEliminarDependenciaActionPerformed
 
-    private void bt_agregarEmpleadoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_agregarEmpleadoMouseClicked
-        String id, pNombre, sNombre, pApellido, sApellido, cargo;
-        try {
-            id = this.jt_codAgregarEmpleados.getText();
-            pNombre = this.jt_pNombreAgregarEmpleado.getText();
-            sNombre = this.jt_sNombreAgregarEmpleado.getText();
-            pApellido = this.jt_pApellidoAgregarEmpleado.getText();
-            sApellido = this.jt_sApellidoAgregarEmpleado.getText();
-            cargo = this.jt_cargoAgregarEmpleado.getText();
-            Document doc = new Document();
-            doc.append("CodigoEmpleado", id);
-            doc.append("PrimerNombre", pNombre);
-            doc.append("SegundoNombre", sNombre);
-            doc.append("PrimerApellido", pApellido);
-            doc.append("SegundoApellido", sApellido);
-            doc.append("Cargo", cargo);
-            if ("Veterinario".equals(cargo)) {
-                Document docNuevo = new Document();
-                docNuevo.append("CodigoVeterinario", id);
-                db.getCollection("Veterinarios").insertOne(docNuevo);
-            }
-            if ("Mantenimiento".equals(cargo)) {
-                Document docNuevo = new Document();
-                docNuevo.append("CodigoEmpleado", id);
-                db.getCollection("PersonalMantenimiento").insertOne(docNuevo);
-            }
-            if ("Cuidador".equals(cargo)) {
-                Document docNuevo = new Document();
-                docNuevo.append("CodigoEmpleado", id);
-                db.getCollection("Cuidadores").insertOne(docNuevo);
-            }
-            db.getCollection("Empleados").insertOne(doc);
-            JOptionPane.showMessageDialog(this.jd_Empleados, "Agregado Exitosamente!");
-        } catch (Exception e) {
-        }
-    }//GEN-LAST:event_bt_agregarEmpleadoMouseClicked
-
-    private void bt_modificarEmpleadoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_modificarEmpleadoMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_bt_modificarEmpleadoMouseClicked
-
-    private void bt_modificarEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_modificarEmpleadoActionPerformed
-        String codEmpleado = this.jt_codModificarEmpleados.getText();
-        String pNombre, sNombre, pApellido, sApellido, cargo;
-        try {
-            pNombre = this.jt_pNombreModificarEmpleado.getText();
-            sNombre = this.jt_sNombreModificarEmpleado.getText();
-            pApellido = this.jt_pApellidoModificarEmpleado.getText();
-            sApellido = this.jt_sApellidoModificarEmpleado.getText();
-            cargo = this.jt_cargoModificarEmpleado.getText();
-            db.getCollection("Empleados").updateOne(Filters.eq("CodigoEmpleado", codEmpleado), Updates.set("PrimerNombre", pNombre));
-            db.getCollection("Empleados").updateOne(Filters.eq("CodigoEmpleado", codEmpleado), Updates.set("SegundoNombre", sNombre));
-            db.getCollection("Empleados").updateOne(Filters.eq("CodigoEmpleado", codEmpleado), Updates.set("PrimerApellido", pApellido));
-            db.getCollection("Empleados").updateOne(Filters.eq("CodigoEmpleado", codEmpleado), Updates.set("SegundoApellido", sApellido));
-            db.getCollection("Empleados").updateOne(Filters.eq("CodigoEmpleado", codEmpleado), Updates.set("Cargo", cargo));
-            JOptionPane.showMessageDialog(this.jd_Empleados, "Modificado Exitosamente!");
-        } catch (Exception e) {
-
-        }
-    }//GEN-LAST:event_bt_modificarEmpleadoActionPerformed
-
-    private void bt_buscarModificarEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_buscarModificarEmpleadoActionPerformed
-        String codEmpleado;
-        try {
-            codEmpleado = this.jt_codModificarEmpleados.getText();
-            BasicDBObject query = new BasicDBObject();
-            query.put("CodigoEmpleado", codEmpleado);
-            System.out.println();
-            Document doc = db.getCollection("Empleados").find(query).first();
-            this.jt_pNombreModificarEmpleado.setText((String) doc.get("PrimerNombre"));
-            this.jt_sNombreModificarEmpleado.setText((String) doc.get("SegundoNombre"));
-            this.jt_pApellidoModificarEmpleado.setText((String) doc.get("PrimerApellido"));
-            this.jt_sApellidoModificarEmpleado.setText((String) doc.get("SegundoApellido"));
-            this.jt_cargoModificarEmpleado.setText((String) doc.get("Cargo"));
-            JOptionPane.showMessageDialog(this.jd_Empleados, "Encontrado!");
-        } catch (Exception e) {
-
-        }
-    }//GEN-LAST:event_bt_buscarModificarEmpleadoActionPerformed
-
-    private void bt_eliminarEmpleadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_eliminarEmpleadosActionPerformed
-        String codEmpleado = this.cb_eliminarEmpleados.getSelectedItem().toString();
-        int opcion;
-        try {
-            opcion = JOptionPane.showConfirmDialog(this.jd_Empleados, "¿Desea Borrarlo?", "Borrar", YES_NO_OPTION);
-            if (opcion == 0) {
-                db.getCollection("Empleados").deleteOne(Filters.eq("CodigoEmpleado", codEmpleado));
-                cb_eliminarEmpleados.removeItem(this.cb_eliminarEmpleados.getSelectedItem());
-                JOptionPane.showMessageDialog(this.jd_Empleados, "Eliminado!");
-            }
-        } catch (Exception e) {
-        }
-    }//GEN-LAST:event_bt_eliminarEmpleadosActionPerformed
-
-    private void cb_animalesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cb_animalesActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cb_animalesActionPerformed
-
-    private void cb_dosisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cb_dosisActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cb_dosisActionPerformed
-
-    private void bt_enviarDosisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_enviarDosisActionPerformed
-        String idVet;
-        String dosis;
-        String idAnimal;
-        String descripcion;
-        String porcion;
-        try {
-            idVet = this.cb_veterinarios.getSelectedItem().toString();
-            dosis = this.cb_dosis.getSelectedItem().toString();
-            idAnimal = this.cb_animales.getSelectedItem().toString();
-            descripcion = this.ta_descripcion.getText();
-            porcion = this.tf_porcion.getText();
-            Document doc = new Document();
-            doc.append("CodigoDieta", this.tf_codDieta.getText());
-            doc.append("CodigoVeterinario", idVet);
-            doc.append("VecesAlDia", dosis);
-            doc.append("Descripcion", descripcion);
-            doc.append("Porcion", porcion);
-            db.getCollection("Dietas").insertOne(doc);
-            JOptionPane.showMessageDialog(this.jd_Empleados, "Agregado!");
-        } catch (Exception e) {
-        }
-    }//GEN-LAST:event_bt_enviarDosisActionPerformed
-
     private void bt_entrarPersonalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_entrarPersonalActionPerformed
         this.jd_Empleados.setResizable(false);
         this.jd_Empleados.setLocationRelativeTo(this);
@@ -3207,10 +3131,6 @@ public class ParteMario extends javax.swing.JFrame {
 
 
     }//GEN-LAST:event_bt_entrarPersonalActionPerformed
-
-    private void bt_agregarEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_agregarEmpleadoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_bt_agregarEmpleadoActionPerformed
 
     private void cb_habitatasignacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cb_habitatasignacionActionPerformed
         // TODO add your handling code here:
@@ -3302,44 +3222,6 @@ public class ParteMario extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jb_asignamantenimientoActionPerformed
 
-    private void jtab_empleadosStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jtab_empleadosStateChanged
-        // TODO add your handling code here:
-        ComboBoxModel model = this.cb_eliminarEmpleados.getModel();
-        FindIterable<Document> iterDoc = db.getCollection("Empleados").find();
-        int i = 1;
-        cb_eliminarEmpleados.removeAllItems();
-        for (Document doc : iterDoc) {
-            this.cb_eliminarEmpleados.addItem((String) doc.get("CodigoEmpleado"));
-            i++;
-        }
-        int j = 1;
-        FindIterable<Document> iterDoc2 = db.getCollection("Veterinarios").find();
-        cb_veterinarios.removeAllItems();
-        for (Document doc : iterDoc2) {
-            this.cb_veterinarios.addItem((String) doc.get("CodigoVeterinario"));
-            j++;
-        }
-        FindIterable<Document> iterDoc3 = db.getCollection("Animales").find();
-        int k = 1;
-        cb_animales.removeAllItems();
-        for (Document doc : iterDoc3) {
-            this.cb_animales.addItem(doc.get("CodigoAnimal") + "");
-            k++;
-        }
-        this.jt_codAgregarEmpleados.setText("");
-        this.jt_pNombreAgregarEmpleado.setText("");
-        this.jt_sNombreAgregarEmpleado.setText("");
-        this.jt_pApellidoAgregarEmpleado.setText("");
-        this.jt_sApellidoAgregarEmpleado.setText("");
-        this.jt_cargoAgregarEmpleado.setText("");
-        this.jt_codModificarEmpleados.setText("");
-        this.jt_pNombreModificarEmpleado.setText("");
-        this.jt_sNombreModificarEmpleado.setText("");
-        this.jt_pApellidoModificarEmpleado.setText("");
-        this.jt_sApellidoModificarEmpleado.setText("");
-        this.jt_cargoModificarEmpleado.setText("");
-    }//GEN-LAST:event_jtab_empleadosStateChanged
-
     private void tf_addAnimal_codigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_addAnimal_codigoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_tf_addAnimal_codigoActionPerformed
@@ -3350,14 +3232,27 @@ public class ParteMario extends javax.swing.JFrame {
 
     private void addAnimalMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addAnimalMouseClicked
         // TODO add your handling code here:
-        MongoClientURI uri = new MongoClientURI("mongodb://admin:admin@ds044709.mlab.com:44709/proyectoz");
-        MongoClient zoo = new MongoClient(uri);
-        MongoDatabase db = zoo.getDatabase(uri.getDatabase());
+
         Document doc = new Document();
         BasicDBObject query = new BasicDBObject();
-        query.put("CodigoAnimal", this.tf_enfermedad.getText());
+        BasicDBObject query2 = new BasicDBObject();
+        query.put("CodigoAnimal", Integer.parseInt(this.tf_addAnimal_codigo.getText()));
         Document doc2 = db.getCollection("Animales").find(query).first();
-        if (doc2 == null) {
+        query2.put("CodigoEspecie", Integer.parseInt(this.cb_addAnimal_especie.getSelectedItem().toString()));
+        bandera = true;
+        String nombre = this.tf_addAnimal_nombre.getText();
+        FindIterable<Document> iterable = db.getCollection("Animales").find(query2);
+        iterable.forEach(new Block<Document>() {
+            @Override
+            public void apply(final Document doc3) {
+                System.out.println(doc3.get("Nombre").toString());
+                if (doc3.get("Nombre").toString().equals(nombre)) {
+                    bandera = false;
+                }
+            }
+        });
+
+        if (doc2 == null && bandera && cb_addAnimal_subEspecie.getSelectedItem() != null) {
             doc.append("CodigoAnimal", Integer.parseInt(this.tf_addAnimal_codigo.getText()));
             doc.append("CodigoEspecie", Integer.parseInt(this.cb_addAnimal_especie.getSelectedItem().toString()));
             doc.append("CodigoSubEspecie", Integer.parseInt(this.cb_addAnimal_subEspecie.getSelectedItem().toString()));
@@ -3387,13 +3282,22 @@ public class ParteMario extends javax.swing.JFrame {
             this.rb_addAnimal_no.setSelected(false);
             this.sp_addAnimal_edad.setValue(0);
         } else {
-            JOptionPane.showMessageDialog(this, "El codigo ya existe");
+            if (cb_addAnimal_subEspecie.getSelectedItem() == null) {
+                JOptionPane.showMessageDialog(this.jd_animales, "Llene todos los campos");
+            }
+            if (doc2 != null) {
+                JOptionPane.showMessageDialog(this, "El codigo ya existe");
+            }
+            if (!bandera) {
+                JOptionPane.showMessageDialog(this.jd_animales, "El nombre ya existe dentro de la especie");
+            }
+
         }
     }//GEN-LAST:event_addAnimalMouseClicked
 
     private void cb_addAnimal_especieItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cb_addAnimal_especieItemStateChanged
         // TODO add your handling code here:
-        
+
     }//GEN-LAST:event_cb_addAnimal_especieItemStateChanged
 
     private void cb_addAnimal_especieComponentMoved(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_cb_addAnimal_especieComponentMoved
@@ -3479,7 +3383,7 @@ public class ParteMario extends javax.swing.JFrame {
 
     private void jButton9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton9MouseClicked
         // TODO add your handling code here:
-        
+
         int codigo = Integer.parseInt(this.tf_buscarAnimal_codigo.getText());
         db.getCollection("Animales").updateOne(Filters.eq("CodigoAnimal", codigo), Updates.set("CodigoEspecie", Integer.parseInt(this.tf_buscarAnimal_especie.getText())));
         db.getCollection("Animales").updateOne(Filters.eq("CodigoAnimal", codigo), Updates.set("Nombre", this.tf_buscarAnimal_nombre.getText()));
@@ -3499,43 +3403,50 @@ public class ParteMario extends javax.swing.JFrame {
 
     private void bt_EliminarAnimalMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_EliminarAnimalMouseClicked
         // TODO add your handling code here:
-      
+
         int opcion;
         try {
             opcion = JOptionPane.showConfirmDialog(this.jd_animales, "¿Desea Borrarlo?", "Borrar", YES_NO_OPTION);
             if (opcion == 0) {
-                db.getCollection("Animales").deleteOne(Filters.eq("CodigoAnimal", this.tf_buscarAnimal_codigo.getText()));
+                db.getCollection("Animales").deleteOne(Filters.eq("CodigoAnimal", Integer.parseInt(this.tf_buscarAnimal_codigo.getText())));
                 JOptionPane.showMessageDialog(this.jd_animales, "Eliminado!");
             }
+            tf_buscarAnimal_especie.setText("");
+            tf_buscarAnimal_nombre.setText("");
+            tf_buscarAnimal_pais.setText("");
+            tf_buscarAnimal_madre.setText("");
+            tf_buscarAnimal_padre.setText("");
         } catch (Exception e) {
         }
     }//GEN-LAST:event_bt_EliminarAnimalMouseClicked
 
     private void bt_buscarAnimal2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_buscarAnimal2MouseClicked
         // TODO add your handling code here:
-        
-        BasicDBObject query = new BasicDBObject();
-        query.put("CodigoAnimal", Integer.parseInt(this.tf_buscarAnimal_codigo.getText()));
-        Document doc = db.getCollection("Animales").find(query).first();
-        this.tf_buscarAnimal_especie.setText(doc.get("CodigoEspecie").toString());
-        this.tf_buscarAnimal_subespecie.setText(doc.get("CodigoSubEspecie").toString());
-        this.tf_buscarAnimal_nombre.setText(doc.get("Nombre").toString());
-        this.tf_buscarAnimal_madre.setText(doc.get("Nombre_Madre").toString());
-        this.tf_buscarAnimal_padre.setText(doc.get("Nombre_Padre").toString());
-        this.tf_buscarAnimal_veterinario.setText(doc.get("CodigoVeterinario").toString());
-        this.cb_buscarAnimal_continente.setSelectedItem(doc.get("Continente"));
-        this.tf_buscarAnimal_pais.setText(doc.get("Pais").toString());
-        this.sp_buscarAnimal_edad.setValue(doc.get("Edad"));
-        if (doc.get("Cautiverio").toString().equals("SI")) {
-            this.rb_buscarAnimal_si.setSelected(true);
-        } else {
-            this.rb_buscarAnimal_no.setSelected(true);
+        try {
+            BasicDBObject query = new BasicDBObject();
+            query.put("CodigoAnimal", Integer.parseInt(this.tf_buscarAnimal_codigo.getText()));
+            Document doc = db.getCollection("Animales").find(query).first();
+            this.tf_buscarAnimal_especie.setText(doc.get("CodigoEspecie").toString());
+            this.tf_buscarAnimal_subespecie.setText(doc.get("CodigoSubEspecie").toString());
+            this.tf_buscarAnimal_nombre.setText(doc.get("Nombre").toString());
+            this.tf_buscarAnimal_madre.setText(doc.get("Nombre_Madre").toString());
+            this.tf_buscarAnimal_padre.setText(doc.get("Nombre_Padre").toString());
+            this.tf_buscarAnimal_veterinario.setText(doc.get("CodigoVeterinario").toString());
+            this.cb_buscarAnimal_continente.setSelectedItem(doc.get("Continente"));
+            this.tf_buscarAnimal_pais.setText(doc.get("Pais").toString());
+            this.sp_buscarAnimal_edad.setValue(doc.get("Edad"));
+            if (doc.get("Cautiverio").toString().equals("SI")) {
+                this.rb_buscarAnimal_si.setSelected(true);
+            } else {
+                this.rb_buscarAnimal_no.setSelected(true);
+            }
+        } catch (Exception e) {
         }
     }//GEN-LAST:event_bt_buscarAnimal2MouseClicked
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
         // TODO add your handling code here:
-        
+
         Document doc = new Document();
         BasicDBObject query = new BasicDBObject();
         query.put("CodigoEspecie", Integer.parseInt(this.tf_agregarEspecie_codEspecie.getText()));
@@ -3567,7 +3478,7 @@ public class ParteMario extends javax.swing.JFrame {
 
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
         // TODO add your handling code here:
-        
+
         Document doc = new Document();
         BasicDBObject query = new BasicDBObject();
         query.put("CodigoSubEspecie", Integer.parseInt(this.tf_agregarEspecie_codSubEspecie.getText()));
@@ -3624,7 +3535,6 @@ public class ParteMario extends javax.swing.JFrame {
         modelo.addColumn("Codigo Especie");
         modelo.addColumn("Nombre");
 
-
         FindIterable<Document> iterable = db.getCollection("Especie").find();
         iterable.forEach(new Block<Document>() {
             @Override
@@ -3658,7 +3568,7 @@ public class ParteMario extends javax.swing.JFrame {
 
     private void jButton5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseClicked
         // TODO add your handling code here:
-        
+
         int opcion;
         if (lb_especies.getText().equals("Especies")) {
             int codigoEspecie = (int) this.tb_especies.getValueAt(tb_especies.getSelectedRow(), 1);
@@ -3689,7 +3599,7 @@ public class ParteMario extends javax.swing.JFrame {
 
     private void cb_enfermedad_codigoAnimalMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cb_enfermedad_codigoAnimalMouseClicked
         // TODO add your handling code here:
-       
+
         BasicDBObject query = new BasicDBObject();
         query.put("CodigoAnimal", Integer.parseInt(this.cb_enfermedad_codigoAnimal.getSelectedItem().toString()));
         DefaultComboBoxModel modelo = new DefaultComboBoxModel();
@@ -3699,7 +3609,7 @@ public class ParteMario extends javax.swing.JFrame {
 
     private void jButton7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton7MouseClicked
         // TODO add your handling code here:
-        
+
         Document doc = new Document();
         BasicDBObject query = new BasicDBObject();
         query.put("NombreEnfermedad", this.tf_enfermedad.getText());
@@ -3720,7 +3630,7 @@ public class ParteMario extends javax.swing.JFrame {
 
     private void jPanel27ComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_jPanel27ComponentShown
         // TODO add your handling code here:
-        
+
         DefaultComboBoxModel modelo = new DefaultComboBoxModel();
         FindIterable<Document> iterable = db.getCollection("Animales").find();
         iterable.forEach(new Block<Document>() {
@@ -3739,7 +3649,7 @@ public class ParteMario extends javax.swing.JFrame {
         modelo.addColumn("Enfermedad");
         modelo.addColumn("Tratamiento");
         modelo.addColumn("Estado");
-        
+
         FindIterable<Document> iterable = db.getCollection("Enfermedades").find();
         iterable.forEach(new Block<Document>() {
             @Override
@@ -3753,7 +3663,7 @@ public class ParteMario extends javax.swing.JFrame {
 
     private void cb_animalMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cb_animalMouseClicked
         // TODO add your handling code here:
-       
+
         BasicDBObject query = new BasicDBObject();
         query.put("CodigoAnimal", Integer.parseInt(this.cb_animal.getSelectedItem().toString()));
         DefaultComboBoxModel modelo = new DefaultComboBoxModel();
@@ -3791,7 +3701,7 @@ public class ParteMario extends javax.swing.JFrame {
 
     private void jPanel29ComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_jPanel29ComponentShown
         // TODO add your handling code here:
-        
+
         DefaultComboBoxModel modelo = new DefaultComboBoxModel();
         FindIterable<Document> iterable = db.getCollection("Animales").find();
         iterable.forEach(new Block<Document>() {
@@ -3899,6 +3809,211 @@ public class ParteMario extends javax.swing.JFrame {
         this.cb_addAnimal_subEspecie.setModel(modelo);
     }//GEN-LAST:event_cb_addAnimal_especieMouseClicked
 
+    private void jButton8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton8MouseClicked
+        // TODO add your handling code here:
+        Document doc = new Document();
+        doc.append("CodigoAnimal", Integer.parseInt(cb_alimentacion_animal.getSelectedItem().toString()));
+        doc.append("CodigoDieta", Integer.parseInt(cb_alimentacion_dieta.getSelectedItem().toString()));
+        doc.append("FechaInicio", dc_alimentacion_fecha.getDate());
+        db.getCollection("Alimentacion").insertOne(doc);
+        JOptionPane.showMessageDialog(this.jd_animales, "Agregado con Exito");
+        dc_alimentacion_fecha.setDate(null);
+
+    }//GEN-LAST:event_jButton8MouseClicked
+
+    private void jPanel30ComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_jPanel30ComponentShown
+        // TODO add your handling code here:
+        DefaultComboBoxModel modelo = new DefaultComboBoxModel();
+        FindIterable<Document> iterable = db.getCollection("Animales").find();
+        iterable.forEach(new Block<Document>() {
+            @Override
+            public void apply(final Document document) {
+                modelo.addElement(document.get("CodigoAnimal"));
+            }
+        });
+        this.cb_alimentacion_animal.setModel(modelo);
+        DefaultComboBoxModel modelo2 = new DefaultComboBoxModel();
+        FindIterable<Document> iterable2 = db.getCollection("Dietas").find();
+        iterable2.forEach(new Block<Document>() {
+            @Override
+            public void apply(final Document document) {
+                modelo2.addElement(document.get("CodigoDieta"));
+            }
+        });
+        this.cb_alimentacion_dieta.setModel(modelo2);
+    }//GEN-LAST:event_jPanel30ComponentShown
+
+    private void jtab_empleadosStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jtab_empleadosStateChanged
+        // TODO add your handling code here:
+        ComboBoxModel model = this.cb_eliminarEmpleados.getModel();
+        FindIterable<Document> iterDoc = db.getCollection("Empleados").find();
+        int i = 1;
+        cb_eliminarEmpleados.removeAllItems();
+        for (Document doc : iterDoc) {
+            this.cb_eliminarEmpleados.addItem((String) doc.get("CodigoEmpleado"));
+            i++;
+        }
+        int j = 1;
+        FindIterable<Document> iterDoc2 = db.getCollection("Veterinarios").find();
+        cb_veterinarios.removeAllItems();
+        for (Document doc : iterDoc2) {
+            this.cb_veterinarios.addItem((String) doc.get("CodigoVeterinario"));
+            j++;
+        }
+        FindIterable<Document> iterDoc3 = db.getCollection("Animales").find();
+        int k = 1;
+        cb_animales.removeAllItems();
+        for (Document doc : iterDoc3) {
+            this.cb_animales.addItem(doc.get("CodigoAnimal") + "");
+            k++;
+        }
+        this.jt_codAgregarEmpleados.setText("");
+        this.jt_pNombreAgregarEmpleado.setText("");
+        this.jt_sNombreAgregarEmpleado.setText("");
+        this.jt_pApellidoAgregarEmpleado.setText("");
+        this.jt_sApellidoAgregarEmpleado.setText("");
+        this.jt_cargoAgregarEmpleado.setText("");
+        this.jt_codModificarEmpleados.setText("");
+        this.jt_pNombreModificarEmpleado.setText("");
+        this.jt_sNombreModificarEmpleado.setText("");
+        this.jt_pApellidoModificarEmpleado.setText("");
+        this.jt_sApellidoModificarEmpleado.setText("");
+        this.jt_cargoModificarEmpleado.setText("");
+    }//GEN-LAST:event_jtab_empleadosStateChanged
+
+    private void bt_enviarDosisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_enviarDosisActionPerformed
+        String idVet;
+        String dosis;
+        String idAnimal;
+        String descripcion;
+        String porcion;
+        try {
+            idVet = this.cb_veterinarios.getSelectedItem().toString();
+            dosis = this.cb_dosis.getSelectedItem().toString();
+            idAnimal = this.cb_animales.getSelectedItem().toString();
+            descripcion = this.ta_descripcion.getText();
+            porcion = this.tf_porcion.getText();
+            Document doc = new Document();
+            doc.append("CodigoDieta", this.tf_codDieta.getText());
+            doc.append("CodigoVeterinario", idVet);
+            doc.append("VecesAlDia", dosis);
+            doc.append("Descripcion", descripcion);
+            doc.append("Porcion", porcion);
+            db.getCollection("Dietas").insertOne(doc);
+            JOptionPane.showMessageDialog(this.jd_Empleados, "Agregado!");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this.jd_crearzona, "Codigo ya existe");
+        }
+    }//GEN-LAST:event_bt_enviarDosisActionPerformed
+
+    private void cb_dosisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cb_dosisActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cb_dosisActionPerformed
+
+    private void cb_animalesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cb_animalesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cb_animalesActionPerformed
+
+    private void bt_eliminarEmpleadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_eliminarEmpleadosActionPerformed
+        String codEmpleado = this.cb_eliminarEmpleados.getSelectedItem().toString();
+        int opcion;
+        try {
+            opcion = JOptionPane.showConfirmDialog(this.jd_Empleados, "¿Desea Borrarlo?", "Borrar", YES_NO_OPTION);
+            if (opcion == 0) {
+                db.getCollection("Empleados").deleteOne(Filters.eq("CodigoEmpleado", codEmpleado));
+                cb_eliminarEmpleados.removeItem(this.cb_eliminarEmpleados.getSelectedItem());
+                JOptionPane.showMessageDialog(this.jd_Empleados, "Eliminado!");
+            }
+        } catch (Exception e) {
+        }
+    }//GEN-LAST:event_bt_eliminarEmpleadosActionPerformed
+
+    private void bt_buscarModificarEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_buscarModificarEmpleadoActionPerformed
+        String codEmpleado;
+        try {
+            codEmpleado = this.jt_codModificarEmpleados.getText();
+            BasicDBObject query = new BasicDBObject();
+            query.put("CodigoEmpleado", codEmpleado);
+            System.out.println();
+            Document doc = db.getCollection("Empleados").find(query).first();
+            this.jt_pNombreModificarEmpleado.setText((String) doc.get("PrimerNombre"));
+            this.jt_sNombreModificarEmpleado.setText((String) doc.get("SegundoNombre"));
+            this.jt_pApellidoModificarEmpleado.setText((String) doc.get("PrimerApellido"));
+            this.jt_sApellidoModificarEmpleado.setText((String) doc.get("SegundoApellido"));
+            this.jt_cargoModificarEmpleado.setText((String) doc.get("Cargo"));
+            JOptionPane.showMessageDialog(this.jd_Empleados, "Encontrado!");
+        } catch (Exception e) {
+
+        }
+    }//GEN-LAST:event_bt_buscarModificarEmpleadoActionPerformed
+
+    private void bt_modificarEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_modificarEmpleadoActionPerformed
+        String codEmpleado = this.jt_codModificarEmpleados.getText();
+        String pNombre, sNombre, pApellido, sApellido, cargo;
+        try {
+            pNombre = this.jt_pNombreModificarEmpleado.getText();
+            sNombre = this.jt_sNombreModificarEmpleado.getText();
+            pApellido = this.jt_pApellidoModificarEmpleado.getText();
+            sApellido = this.jt_sApellidoModificarEmpleado.getText();
+            cargo = this.jt_cargoModificarEmpleado.getText();
+            db.getCollection("Empleados").updateOne(Filters.eq("CodigoEmpleado", codEmpleado), Updates.set("PrimerNombre", pNombre));
+            db.getCollection("Empleados").updateOne(Filters.eq("CodigoEmpleado", codEmpleado), Updates.set("SegundoNombre", sNombre));
+            db.getCollection("Empleados").updateOne(Filters.eq("CodigoEmpleado", codEmpleado), Updates.set("PrimerApellido", pApellido));
+            db.getCollection("Empleados").updateOne(Filters.eq("CodigoEmpleado", codEmpleado), Updates.set("SegundoApellido", sApellido));
+            db.getCollection("Empleados").updateOne(Filters.eq("CodigoEmpleado", codEmpleado), Updates.set("Cargo", cargo));
+            JOptionPane.showMessageDialog(this.jd_Empleados, "Modificado Exitosamente!");
+        } catch (Exception e) {
+
+        }
+    }//GEN-LAST:event_bt_modificarEmpleadoActionPerformed
+
+    private void bt_modificarEmpleadoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_modificarEmpleadoMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_bt_modificarEmpleadoMouseClicked
+
+    private void bt_agregarEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_agregarEmpleadoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_bt_agregarEmpleadoActionPerformed
+
+    private void bt_agregarEmpleadoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_agregarEmpleadoMouseClicked
+        String id, pNombre, sNombre, pApellido, sApellido, cargo;
+        try {
+            id = this.jt_codAgregarEmpleados.getText();
+            pNombre = this.jt_pNombreAgregarEmpleado.getText();
+            sNombre = this.jt_sNombreAgregarEmpleado.getText();
+            pApellido = this.jt_pApellidoAgregarEmpleado.getText();
+            sApellido = this.jt_sApellidoAgregarEmpleado.getText();
+            cargo = this.jt_cargoAgregarEmpleado.getText();
+            Document doc = new Document();
+            doc.append("CodigoEmpleado", id);
+            doc.append("PrimerNombre", pNombre);
+            doc.append("SegundoNombre", sNombre);
+            doc.append("PrimerApellido", pApellido);
+            doc.append("SegundoApellido", sApellido);
+            doc.append("Cargo", cargo);
+            if ("Veterinario".equals(cargo)) {
+                Document docNuevo = new Document();
+                docNuevo.append("CodigoVeterinario", id);
+                db.getCollection("Veterinarios").insertOne(docNuevo);
+            }
+            if ("Mantenimiento".equals(cargo)) {
+                Document docNuevo = new Document();
+                docNuevo.append("CodigoEmpleado", id);
+                db.getCollection("PersonalMantenimiento").insertOne(docNuevo);
+            }
+            if ("Cuidador".equals(cargo)) {
+                Document docNuevo = new Document();
+                docNuevo.append("CodigoEmpleado", id);
+                db.getCollection("Cuidadores").insertOne(docNuevo);
+            }
+            db.getCollection("Empleados").insertOne(doc);
+            JOptionPane.showMessageDialog(this.jd_Empleados, "Agregado Exitosamente!");
+        } catch (Exception e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(this.jd_Empleados, "Codigo ya existe");
+        }
+    }//GEN-LAST:event_bt_agregarEmpleadoMouseClicked
+
     public void dialog(JDialog a) {
         a.setModal(true);
         a.pack();
@@ -3970,6 +4085,8 @@ public class ParteMario extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cb_addAnimal_especie;
     private javax.swing.JComboBox<String> cb_addAnimal_subEspecie;
     private javax.swing.JComboBox<String> cb_agregarEspecie_codEspecie;
+    private javax.swing.JComboBox<String> cb_alimentacion_animal;
+    private javax.swing.JComboBox<String> cb_alimentacion_dieta;
     private javax.swing.JComboBox<String> cb_animal;
     private javax.swing.JComboBox<String> cb_animales;
     private javax.swing.JComboBox<String> cb_asignarCuidador1;
@@ -3993,6 +4110,7 @@ public class ParteMario extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cb_zonaDependencia;
     private javax.swing.JComboBox<String> cb_zonaasignacion;
     private javax.swing.JComboBox<String> cb_zonacrearhabitat;
+    private com.toedter.calendar.JDateChooser dc_alimentacion_fecha;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
@@ -4000,6 +4118,7 @@ public class ParteMario extends javax.swing.JFrame {
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
+    private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -4068,6 +4187,10 @@ public class ParteMario extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel68;
     private javax.swing.JLabel jLabel69;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel70;
+    private javax.swing.JLabel jLabel71;
+    private javax.swing.JLabel jLabel72;
+    private javax.swing.JLabel jLabel74;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
@@ -4079,7 +4202,6 @@ public class ParteMario extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel15;
     private javax.swing.JPanel jPanel16;
     private javax.swing.JPanel jPanel17;
-    private javax.swing.JPanel jPanel18;
     private javax.swing.JPanel jPanel19;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel20;
@@ -4093,6 +4215,7 @@ public class ParteMario extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel28;
     private javax.swing.JPanel jPanel29;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel30;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
@@ -4100,7 +4223,6 @@ public class ParteMario extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
@@ -4209,7 +4331,6 @@ public class ParteMario extends javax.swing.JFrame {
     private javax.swing.JTable tb_descendientes;
     private javax.swing.JTable tb_enfermedades;
     private javax.swing.JTable tb_especies;
-    private javax.swing.JTable tb_listarEmpleados;
     private javax.swing.JTextField tf_addAnimal_codigo;
     private javax.swing.JTextField tf_addAnimal_madre;
     private javax.swing.JTextField tf_addAnimal_nombre;
@@ -4233,4 +4354,5 @@ public class ParteMario extends javax.swing.JFrame {
     private javax.swing.JTextField tf_porcion;
     // End of variables declaration//GEN-END:variables
     int validarhabitat;
+    boolean bandera = true;
 }
