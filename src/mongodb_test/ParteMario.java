@@ -1686,6 +1686,11 @@ public class ParteMario extends javax.swing.JFrame {
                 cb_addAnimal_especieItemStateChanged(evt);
             }
         });
+        cb_addAnimal_especie.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                cb_addAnimal_especieMouseClicked(evt);
+            }
+        });
         cb_addAnimal_especie.addComponentListener(new java.awt.event.ComponentAdapter() {
             public void componentMoved(java.awt.event.ComponentEvent evt) {
                 cb_addAnimal_especieComponentMoved(evt);
@@ -2557,7 +2562,7 @@ public class ParteMario extends javax.swing.JFrame {
             jd_animalesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jd_animalesLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 305, Short.MAX_VALUE)
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 305, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -3388,20 +3393,7 @@ public class ParteMario extends javax.swing.JFrame {
 
     private void cb_addAnimal_especieItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cb_addAnimal_especieItemStateChanged
         // TODO add your handling code here:
-        MongoClientURI uri = new MongoClientURI("mongodb://admin:admin@ds044709.mlab.com:44709/proyectoz");
-        MongoClient zoo = new MongoClient(uri);
-        MongoDatabase db = zoo.getDatabase(uri.getDatabase());
-        BasicDBObject query = new BasicDBObject();
-        query.put("CodigoEspecie", Integer.parseInt(this.cb_addAnimal_especie.getSelectedItem().toString()));
-        DefaultComboBoxModel modelo = new DefaultComboBoxModel();
-        FindIterable<Document> iterable = db.getCollection("SubEspecie").find(query);
-        iterable.forEach(new Block<Document>() {
-            @Override
-            public void apply(final Document document) {
-                modelo.addElement(document.get("CodigoSubEspecie"));
-            }
-        });
-        this.cb_addAnimal_subEspecie.setModel(modelo);
+        
     }//GEN-LAST:event_cb_addAnimal_especieItemStateChanged
 
     private void cb_addAnimal_especieComponentMoved(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_cb_addAnimal_especieComponentMoved
@@ -3410,9 +3402,6 @@ public class ParteMario extends javax.swing.JFrame {
 
     private void jPanel19ComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_jPanel19ComponentShown
         // TODO add your handling code here:
-        MongoClientURI uri = new MongoClientURI("mongodb://admin:admin@ds044709.mlab.com:44709/proyectoz");
-        MongoClient zoo = new MongoClient(uri);
-        MongoDatabase db = zoo.getDatabase(uri.getDatabase());
         DefaultComboBoxModel modelo = new DefaultComboBoxModel();
         FindIterable<Document> iterable = db.getCollection("Especie").find();
         iterable.forEach(new Block<Document>() {
@@ -3435,9 +3424,6 @@ public class ParteMario extends javax.swing.JFrame {
         modelo.addColumn("Continente");
         modelo.addColumn("Pais");
 
-        MongoClientURI uri = new MongoClientURI("mongodb://admin:admin@ds044709.mlab.com:44709/proyectoz");
-        MongoClient zoo = new MongoClient(uri);
-        MongoDatabase db = zoo.getDatabase(uri.getDatabase());
         BasicDBObject query = new BasicDBObject();
         query.put("CodigoEspecie", Integer.parseInt(this.cb_buscarAnimal1_especie.getSelectedItem().toString()));
         FindIterable<Document> iterable = db.getCollection("Animales").find(query);
@@ -3461,9 +3447,6 @@ public class ParteMario extends javax.swing.JFrame {
         modelo.addColumn("Continente");
         modelo.addColumn("Pais");
 
-        MongoClientURI uri = new MongoClientURI("mongodb://admin:admin@ds044709.mlab.com:44709/proyectoz");
-        MongoClient zoo = new MongoClient(uri);
-        MongoDatabase db = zoo.getDatabase(uri.getDatabase());
         BasicDBObject query = new BasicDBObject();
         query.put("CodigSuboEspecie", Integer.parseInt(this.cb_buscarAnimal1_subespecie.getSelectedItem().toString()));
         FindIterable<Document> iterable = db.getCollection("Animales").find(query);
@@ -3479,9 +3462,6 @@ public class ParteMario extends javax.swing.JFrame {
 
     private void jPanel21ComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_jPanel21ComponentShown
         // TODO add your handling code here:
-        MongoClientURI uri = new MongoClientURI("mongodb://admin:admin@ds044709.mlab.com:44709/proyectoz");
-        MongoClient zoo = new MongoClient(uri);
-        MongoDatabase db = zoo.getDatabase(uri.getDatabase());
         DefaultComboBoxModel modelo = new DefaultComboBoxModel();
         FindIterable<Document> iterable = db.getCollection("SubEspecie").find();
         iterable.forEach(new Block<Document>() {
@@ -3499,9 +3479,7 @@ public class ParteMario extends javax.swing.JFrame {
 
     private void jButton9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton9MouseClicked
         // TODO add your handling code here:
-        MongoClientURI uri = new MongoClientURI("mongodb://admin:admin@ds044709.mlab.com:44709/proyectoz");
-        MongoClient zoo = new MongoClient(uri);
-        MongoDatabase db = zoo.getDatabase(uri.getDatabase());
+        
         int codigo = Integer.parseInt(this.tf_buscarAnimal_codigo.getText());
         db.getCollection("Animales").updateOne(Filters.eq("CodigoAnimal", codigo), Updates.set("CodigoEspecie", Integer.parseInt(this.tf_buscarAnimal_especie.getText())));
         db.getCollection("Animales").updateOne(Filters.eq("CodigoAnimal", codigo), Updates.set("Nombre", this.tf_buscarAnimal_nombre.getText()));
@@ -3521,9 +3499,7 @@ public class ParteMario extends javax.swing.JFrame {
 
     private void bt_EliminarAnimalMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_EliminarAnimalMouseClicked
         // TODO add your handling code here:
-        MongoClientURI uri = new MongoClientURI("mongodb://admin:admin@ds044709.mlab.com:44709/proyectoz");
-        MongoClient zoo = new MongoClient(uri);
-        MongoDatabase db = zoo.getDatabase(uri.getDatabase());
+      
         int opcion;
         try {
             opcion = JOptionPane.showConfirmDialog(this.jd_animales, "¿Desea Borrarlo?", "Borrar", YES_NO_OPTION);
@@ -3537,9 +3513,7 @@ public class ParteMario extends javax.swing.JFrame {
 
     private void bt_buscarAnimal2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_buscarAnimal2MouseClicked
         // TODO add your handling code here:
-        MongoClientURI uri = new MongoClientURI("mongodb://admin:admin@ds044709.mlab.com:44709/proyectoz");
-        MongoClient zoo = new MongoClient(uri);
-        MongoDatabase db = zoo.getDatabase(uri.getDatabase());
+        
         BasicDBObject query = new BasicDBObject();
         query.put("CodigoAnimal", Integer.parseInt(this.tf_buscarAnimal_codigo.getText()));
         Document doc = db.getCollection("Animales").find(query).first();
@@ -3561,9 +3535,7 @@ public class ParteMario extends javax.swing.JFrame {
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
         // TODO add your handling code here:
-        MongoClientURI uri = new MongoClientURI("mongodb://admin:admin@ds044709.mlab.com:44709/proyectoz");
-        MongoClient zoo = new MongoClient(uri);
-        MongoDatabase db = zoo.getDatabase(uri.getDatabase());
+        
         Document doc = new Document();
         BasicDBObject query = new BasicDBObject();
         query.put("CodigoEspecie", Integer.parseInt(this.tf_agregarEspecie_codEspecie.getText()));
@@ -3595,9 +3567,7 @@ public class ParteMario extends javax.swing.JFrame {
 
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
         // TODO add your handling code here:
-        MongoClientURI uri = new MongoClientURI("mongodb://admin:admin@ds044709.mlab.com:44709/proyectoz");
-        MongoClient zoo = new MongoClient(uri);
-        MongoDatabase db = zoo.getDatabase(uri.getDatabase());
+        
         Document doc = new Document();
         BasicDBObject query = new BasicDBObject();
         query.put("CodigoSubEspecie", Integer.parseInt(this.tf_agregarEspecie_codSubEspecie.getText()));
@@ -3654,9 +3624,6 @@ public class ParteMario extends javax.swing.JFrame {
         modelo.addColumn("Codigo Especie");
         modelo.addColumn("Nombre");
 
-        MongoClientURI uri = new MongoClientURI("mongodb://admin:admin@ds044709.mlab.com:44709/proyectoz");
-        MongoClient zoo = new MongoClient(uri);
-        MongoDatabase db = zoo.getDatabase(uri.getDatabase());
 
         FindIterable<Document> iterable = db.getCollection("Especie").find();
         iterable.forEach(new Block<Document>() {
@@ -3677,10 +3644,6 @@ public class ParteMario extends javax.swing.JFrame {
         modelo.addColumn("Codigo Sub Especie");
         modelo.addColumn("Nombre");
 
-        MongoClientURI uri = new MongoClientURI("mongodb://admin:admin@ds044709.mlab.com:44709/proyectoz");
-        MongoClient zoo = new MongoClient(uri);
-        MongoDatabase db = zoo.getDatabase(uri.getDatabase());
-
         FindIterable<Document> iterable = db.getCollection("SubEspecie").find();
         iterable.forEach(new Block<Document>() {
             @Override
@@ -3695,9 +3658,7 @@ public class ParteMario extends javax.swing.JFrame {
 
     private void jButton5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseClicked
         // TODO add your handling code here:
-        MongoClientURI uri = new MongoClientURI("mongodb://admin:admin@ds044709.mlab.com:44709/proyectoz");
-        MongoClient zoo = new MongoClient(uri);
-        MongoDatabase db = zoo.getDatabase(uri.getDatabase());
+        
         int opcion;
         if (lb_especies.getText().equals("Especies")) {
             int codigoEspecie = (int) this.tb_especies.getValueAt(tb_especies.getSelectedRow(), 1);
@@ -3728,9 +3689,7 @@ public class ParteMario extends javax.swing.JFrame {
 
     private void cb_enfermedad_codigoAnimalMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cb_enfermedad_codigoAnimalMouseClicked
         // TODO add your handling code here:
-        MongoClientURI uri = new MongoClientURI("mongodb://admin:admin@ds044709.mlab.com:44709/proyectoz");
-        MongoClient zoo = new MongoClient(uri);
-        MongoDatabase db = zoo.getDatabase(uri.getDatabase());
+       
         BasicDBObject query = new BasicDBObject();
         query.put("CodigoAnimal", Integer.parseInt(this.cb_enfermedad_codigoAnimal.getSelectedItem().toString()));
         DefaultComboBoxModel modelo = new DefaultComboBoxModel();
@@ -3740,9 +3699,7 @@ public class ParteMario extends javax.swing.JFrame {
 
     private void jButton7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton7MouseClicked
         // TODO add your handling code here:
-        MongoClientURI uri = new MongoClientURI("mongodb://admin:admin@ds044709.mlab.com:44709/proyectoz");
-        MongoClient zoo = new MongoClient(uri);
-        MongoDatabase db = zoo.getDatabase(uri.getDatabase());
+        
         Document doc = new Document();
         BasicDBObject query = new BasicDBObject();
         query.put("NombreEnfermedad", this.tf_enfermedad.getText());
@@ -3763,9 +3720,7 @@ public class ParteMario extends javax.swing.JFrame {
 
     private void jPanel27ComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_jPanel27ComponentShown
         // TODO add your handling code here:
-        MongoClientURI uri = new MongoClientURI("mongodb://admin:admin@ds044709.mlab.com:44709/proyectoz");
-        MongoClient zoo = new MongoClient(uri);
-        MongoDatabase db = zoo.getDatabase(uri.getDatabase());
+        
         DefaultComboBoxModel modelo = new DefaultComboBoxModel();
         FindIterable<Document> iterable = db.getCollection("Animales").find();
         iterable.forEach(new Block<Document>() {
@@ -3784,9 +3739,7 @@ public class ParteMario extends javax.swing.JFrame {
         modelo.addColumn("Enfermedad");
         modelo.addColumn("Tratamiento");
         modelo.addColumn("Estado");
-        MongoClientURI uri = new MongoClientURI("mongodb://admin:admin@ds044709.mlab.com:44709/proyectoz");
-        MongoClient zoo = new MongoClient(uri);
-        MongoDatabase db = zoo.getDatabase(uri.getDatabase());
+        
         FindIterable<Document> iterable = db.getCollection("Enfermedades").find();
         iterable.forEach(new Block<Document>() {
             @Override
@@ -3800,9 +3753,7 @@ public class ParteMario extends javax.swing.JFrame {
 
     private void cb_animalMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cb_animalMouseClicked
         // TODO add your handling code here:
-        MongoClientURI uri = new MongoClientURI("mongodb://admin:admin@ds044709.mlab.com:44709/proyectoz");
-        MongoClient zoo = new MongoClient(uri);
-        MongoDatabase db = zoo.getDatabase(uri.getDatabase());
+       
         BasicDBObject query = new BasicDBObject();
         query.put("CodigoAnimal", Integer.parseInt(this.cb_animal.getSelectedItem().toString()));
         DefaultComboBoxModel modelo = new DefaultComboBoxModel();
@@ -3840,9 +3791,7 @@ public class ParteMario extends javax.swing.JFrame {
 
     private void jPanel29ComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_jPanel29ComponentShown
         // TODO add your handling code here:
-        MongoClientURI uri = new MongoClientURI("mongodb://admin:admin@ds044709.mlab.com:44709/proyectoz");
-        MongoClient zoo = new MongoClient(uri);
-        MongoDatabase db = zoo.getDatabase(uri.getDatabase());
+        
         DefaultComboBoxModel modelo = new DefaultComboBoxModel();
         FindIterable<Document> iterable = db.getCollection("Animales").find();
         iterable.forEach(new Block<Document>() {
@@ -3934,6 +3883,21 @@ public class ParteMario extends javax.swing.JFrame {
 
         }
     }//GEN-LAST:event_cb_asignarespeciehabitatItemStateChanged
+
+    private void cb_addAnimal_especieMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cb_addAnimal_especieMouseClicked
+        // TODO add your handling code here:
+        BasicDBObject query = new BasicDBObject();
+        query.put("CodigoEspecie", Integer.parseInt(this.cb_addAnimal_especie.getSelectedItem().toString()));
+        DefaultComboBoxModel modelo = new DefaultComboBoxModel();
+        FindIterable<Document> iterable = db.getCollection("SubEspecie").find(query);
+        iterable.forEach(new Block<Document>() {
+            @Override
+            public void apply(final Document document) {
+                modelo.addElement(document.get("CodigoSubEspecie"));
+            }
+        });
+        this.cb_addAnimal_subEspecie.setModel(modelo);
+    }//GEN-LAST:event_cb_addAnimal_especieMouseClicked
 
     public void dialog(JDialog a) {
         a.setModal(true);
