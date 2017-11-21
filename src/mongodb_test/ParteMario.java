@@ -337,7 +337,7 @@ public class ParteMario extends javax.swing.JFrame {
         jLabel67 = new javax.swing.JLabel();
         jLabel68 = new javax.swing.JLabel();
         jLabel69 = new javax.swing.JLabel();
-        jb_asignarhabitat = new javax.swing.JButton();
+        jb_btasignarhabitat = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         bt_entrarPersonal = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
@@ -2561,6 +2561,12 @@ public class ParteMario extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        cb_asignarespeciehabitat.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cb_asignarespeciehabitatItemStateChanged(evt);
+            }
+        });
+
         cb_asignarsubespeciehabitat.setEnabled(false);
 
         jLabel67.setText("Especie");
@@ -2569,10 +2575,10 @@ public class ParteMario extends javax.swing.JFrame {
 
         jLabel69.setText("Habitat");
 
-        jb_asignarhabitat.setText("Asignar");
-        jb_asignarhabitat.addActionListener(new java.awt.event.ActionListener() {
+        jb_btasignarhabitat.setText("Asignar");
+        jb_btasignarhabitat.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jb_asignarhabitatActionPerformed(evt);
+                jb_btasignarhabitatActionPerformed(evt);
             }
         });
 
@@ -2598,7 +2604,7 @@ public class ParteMario extends javax.swing.JFrame {
                         .addComponent(cb_asignarespeciehabitat, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(cb_asignarsubespeciehabitat, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(cb_asignarhabitat, 0, 222, Short.MAX_VALUE))
-                    .addComponent(jb_asignarhabitat, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jb_btasignarhabitat, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(69, Short.MAX_VALUE))
         );
         jd_asignarhabitatLayout.setVerticalGroup(
@@ -2617,7 +2623,7 @@ public class ParteMario extends javax.swing.JFrame {
                     .addComponent(cb_asignarhabitat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel69))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
-                .addComponent(jb_asignarhabitat)
+                .addComponent(jb_btasignarhabitat)
                 .addGap(27, 27, 27))
         );
 
@@ -2856,6 +2862,8 @@ public class ParteMario extends javax.swing.JFrame {
             doc.append("CodigoHabitat", codigoZona);
             doc.append("CodigoZona", codigozona);
             doc.append("Nombre", nombre);
+            doc.append("Especie", -1);
+            doc.append("SubEspecie", -1);
             db.getCollection("Habitat").insertOne(doc);
             JOptionPane.showMessageDialog(this.jd_crearzona, "Creada Exitosamente");
             jt_CodigoHabitat.setText("");
@@ -3850,16 +3858,82 @@ public class ParteMario extends javax.swing.JFrame {
         dialog(this.jd_animales);
     }//GEN-LAST:event_bt_entrarAnimalesActionPerformed
 
-    private void jb_asignarhabitatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_asignarhabitatActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jb_asignarhabitatActionPerformed
+    private void jb_btasignarhabitatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_btasignarhabitatActionPerformed
+        int CodZona = Integer.parseInt(cb_asignarhabitat.getSelectedItem().toString());
+        int CodZona2 = Integer.parseInt(cb_asignarespeciehabitat.getSelectedItem().toString());
+        int codzona1;
+        if (cb_asignarsubespeciehabitat.getSelectedItem().toString().equals("Ninguna")) {
+            codzona1 = -1;
+        } else {
+            codzona1 = Integer.parseInt(cb_asignarsubespeciehabitat.getSelectedItem().toString());
+        }
+        try {
+            db.getCollection("Habitat").updateOne(Filters.eq("CodigoHabitat", CodZona), Updates.set("Especie", CodZona2));
+            db.getCollection("Habitat").updateOne(Filters.eq("CodigoHabitat", CodZona), Updates.set("SubEspecie", codzona1));
+            JOptionPane.showMessageDialog(this.jd_asignarhabitat, "Asignado Con Exito");
+            jd_asignarhabitat.setVisible(false);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }//GEN-LAST:event_jb_btasignarhabitatActionPerformed
 
     private void jb_AsignarHabitatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_AsignarHabitatActionPerformed
+        ComboBoxModel model = this.cb_asignarhabitat.getModel();
+        cb_asignarhabitat.setEnabled(false);
+        FindIterable<Document> iterDoc = db.getCollection("Habitat").find();
+        validarhabitat = 0;
+        int k = 1;
+        for (Document doc : iterDoc) {
+            if (Integer.parseInt(doc.get("Especie") + "") == -1) {
+                this.cb_asignarhabitat.addItem(doc.get("CodigoHabitat").toString());
+                k++;
+            }
+        }
+        if (k > 1) {
+            validarhabitat = 1;
+            cb_asignarhabitat.setEnabled(true);
+        }
+
+        this.cb_asignarespeciehabitat.addItem("Ninguna");
+        ComboBoxModel model2 = this.cb_asignarespeciehabitat.getModel();
+        FindIterable<Document> iterDoc2 = db.getCollection("Especie").find();
+        int j = 1;
+        for (Document doc : iterDoc2) {
+            this.cb_asignarespeciehabitat.addItem(doc.get("CodigoEspecie").toString());
+            j++;
+        }
+        this.jb_btasignarhabitat.setEnabled(false);
         this.jd_asignarhabitat.pack();
         this.jd_asignarhabitat.setResizable(false);
         this.jd_asignarhabitat.setLocationRelativeTo(this);
         this.jd_asignarhabitat.setVisible(true);
     }//GEN-LAST:event_jb_AsignarHabitatActionPerformed
+
+    private void cb_asignarespeciehabitatItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cb_asignarespeciehabitatItemStateChanged
+        if (cb_asignarespeciehabitat.getSelectedIndex() == 0) {
+            cb_asignarsubespeciehabitat.removeAllItems();
+            cb_asignarsubespeciehabitat.setEnabled(false);
+            jb_btasignarhabitat.setEnabled(false);
+        } else if (cb_asignarespeciehabitat.getSelectedIndex() > 0) {
+            cb_asignarsubespeciehabitat.removeAllItems();
+            this.cb_asignarsubespeciehabitat.addItem("Ninguna");
+            int CodZona = Integer.parseInt(cb_asignarespeciehabitat.getSelectedItem().toString());
+            BasicDBObject query = new BasicDBObject();
+            query.put("CodigoEspecie", CodZona);
+            ComboBoxModel model = this.cb_asignarsubespeciehabitat.getModel();
+            FindIterable<Document> iterDoc = db.getCollection("SubEspecie").find(query);
+            int i = 1;
+            for (Document doc : iterDoc) {
+                this.cb_asignarsubespeciehabitat.addItem(doc.get("CodigoSubEspecie") + "");
+                i++;
+            }
+            if (validarhabitat == 1) {
+                jb_btasignarhabitat.setEnabled(true);
+            }
+            cb_asignarsubespeciehabitat.setEnabled(true);
+
+        }
+    }//GEN-LAST:event_cb_asignarespeciehabitatItemStateChanged
 
     public void dialog(JDialog a) {
         a.setModal(true);
@@ -4089,7 +4163,7 @@ public class ParteMario extends javax.swing.JFrame {
     private javax.swing.JButton jb_VtcrearDependenica;
     private javax.swing.JButton jb_asignacionpersonal;
     private javax.swing.JButton jb_asignamantenimiento;
-    private javax.swing.JButton jb_asignarhabitat;
+    private javax.swing.JButton jb_btasignarhabitat;
     private javax.swing.JButton jb_buscarModificarZ;
     private javax.swing.JButton jb_buscarhabitat;
     private javax.swing.JButton jb_crearZ;
@@ -4194,5 +4268,5 @@ public class ParteMario extends javax.swing.JFrame {
     private javax.swing.JTextField tf_enfermedad;
     private javax.swing.JTextField tf_porcion;
     // End of variables declaration//GEN-END:variables
-
+    int validarhabitat;
 }
