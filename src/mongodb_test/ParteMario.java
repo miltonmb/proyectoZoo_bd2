@@ -95,6 +95,7 @@ public class ParteMario extends javax.swing.JFrame {
         jd_VentanaCrearHbitat = new javax.swing.JButton();
         JB_VentatnaEliminarHabitat = new javax.swing.JButton();
         jb_VentanaModificarHabitat = new javax.swing.JButton();
+        jb_AsignarHabitat = new javax.swing.JButton();
         Jd_CrearHabitat = new javax.swing.JDialog();
         jPanel7 = new javax.swing.JPanel();
         cb_zonacrearhabitat = new javax.swing.JComboBox<>();
@@ -292,6 +293,10 @@ public class ParteMario extends javax.swing.JFrame {
         tf_agregarEspecie_nombreSubEspecie = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        cb_asignarCuidador1 = new javax.swing.JComboBox<>();
+        cb_asignarcuidador2 = new javax.swing.JComboBox<>();
+        jLabel65 = new javax.swing.JLabel();
+        jLabel66 = new javax.swing.JLabel();
         jPanel25 = new javax.swing.JPanel();
         jButton3 = new javax.swing.JButton();
         jScrollPane4 = new javax.swing.JScrollPane();
@@ -325,6 +330,14 @@ public class ParteMario extends javax.swing.JFrame {
         jScrollPane7 = new javax.swing.JScrollPane();
         tb_descendientes = new javax.swing.JTable();
         jLabel64 = new javax.swing.JLabel();
+        jd_asignarhabitat = new javax.swing.JDialog();
+        cb_asignarespeciehabitat = new javax.swing.JComboBox<>();
+        cb_asignarsubespeciehabitat = new javax.swing.JComboBox<>();
+        cb_asignarhabitat = new javax.swing.JComboBox<>();
+        jLabel67 = new javax.swing.JLabel();
+        jLabel68 = new javax.swing.JLabel();
+        jLabel69 = new javax.swing.JLabel();
+        jb_asignarhabitat = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         bt_entrarPersonal = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
@@ -659,17 +672,19 @@ public class ParteMario extends javax.swing.JFrame {
             }
         });
 
+        jb_AsignarHabitat.setText("Asignar Habitat");
+
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addGap(123, 123, 123)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(JB_VentatnaEliminarHabitat, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jb_VentanaModificarHabitat, javax.swing.GroupLayout.DEFAULT_SIZE, 168, Short.MAX_VALUE)
-                        .addComponent(jd_VentanaCrearHbitat, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(JB_VentatnaEliminarHabitat, javax.swing.GroupLayout.DEFAULT_SIZE, 168, Short.MAX_VALUE)
+                    .addComponent(jb_VentanaModificarHabitat, javax.swing.GroupLayout.DEFAULT_SIZE, 168, Short.MAX_VALUE)
+                    .addComponent(jd_VentanaCrearHbitat, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jb_AsignarHabitat, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(88, Short.MAX_VALUE))
         );
         jPanel6Layout.setVerticalGroup(
@@ -681,7 +696,9 @@ public class ParteMario extends javax.swing.JFrame {
                 .addComponent(jb_VentanaModificarHabitat)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
                 .addComponent(JB_VentatnaEliminarHabitat)
-                .addGap(81, 81, 81))
+                .addGap(36, 36, 36)
+                .addComponent(jb_AsignarHabitat)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout jd_HabitatsLayout = new javax.swing.GroupLayout(jd_Habitats.getContentPane());
@@ -1293,7 +1310,7 @@ public class ParteMario extends javax.swing.JFrame {
                         .addComponent(jt_cargoModificarEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(bt_modificarEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 101, Short.MAX_VALUE)
+                    .addComponent(bt_modificarEmpleado, javax.swing.GroupLayout.DEFAULT_SIZE, 101, Short.MAX_VALUE)
                     .addComponent(bt_buscarModificarEmpleado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -2097,6 +2114,10 @@ public class ParteMario extends javax.swing.JFrame {
             }
         });
 
+        jLabel65.setText("Cuidador");
+
+        jLabel66.setText("Cuidador");
+
         javax.swing.GroupLayout jPanel24Layout = new javax.swing.GroupLayout(jPanel24);
         jPanel24.setLayout(jPanel24Layout);
         jPanel24Layout.setHorizontalGroup(
@@ -2113,10 +2134,14 @@ public class ParteMario extends javax.swing.JFrame {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(tf_agregarEspecie_codEspecie, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(jPanel24Layout.createSequentialGroup()
-                                        .addComponent(jLabel53)
+                                        .addGroup(jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(jLabel53)
+                                            .addComponent(jLabel66))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(tf_agregarEspecie_nombreEspecie, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE))
+                                        .addGroup(jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(cb_asignarCuidador1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(tf_agregarEspecie_nombreEspecie, javax.swing.GroupLayout.DEFAULT_SIZE, 131, Short.MAX_VALUE))))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel24Layout.createSequentialGroup()
                                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jLabel50)
@@ -2137,22 +2162,27 @@ public class ParteMario extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(cb_agregarEspecie_codEspecie, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel24Layout.createSequentialGroup()
-                        .addComponent(jLabel56)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(tf_agregarEspecie_nombreSubEspecie, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel24Layout.createSequentialGroup()
                         .addGap(81, 81, 81)
                         .addComponent(jLabel51))
                     .addGroup(jPanel24Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton2)))
+                        .addGroup(jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jButton2)
+                            .addGroup(jPanel24Layout.createSequentialGroup()
+                                .addGroup(jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel56)
+                                    .addComponent(jLabel65))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(cb_asignarcuidador2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(tf_agregarEspecie_nombreSubEspecie, javax.swing.GroupLayout.DEFAULT_SIZE, 129, Short.MAX_VALUE))))))
                 .addGap(63, 63, 63))
         );
         jPanel24Layout.setVerticalGroup(
             jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel24Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel24Layout.createSequentialGroup()
                         .addGroup(jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2176,15 +2206,27 @@ public class ParteMario extends javax.swing.JFrame {
                                 .addGroup(jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jLabel55)
                                     .addComponent(tf_agregarEspecie_codSubEspecie, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jLabel56)
-                                .addComponent(tf_agregarEspecie_nombreSubEspecie, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jButton1))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton2)))
-                .addContainerGap(85, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel24Layout.createSequentialGroup()
+                                .addGap(9, 9, 9)
+                                .addGroup(jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(cb_asignarCuidador1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel66))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jButton1))
+                            .addGroup(jPanel24Layout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel56)
+                                    .addComponent(tf_agregarEspecie_nombreSubEspecie, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(cb_asignarcuidador2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel65))
+                                .addGap(0, 0, Short.MAX_VALUE)))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton2)
+                .addGap(36, 36, 36))
         );
 
         jTabbedPane3.addTab("Agregar", jPanel24);
@@ -2512,6 +2554,61 @@ public class ParteMario extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 305, Short.MAX_VALUE)
                 .addContainerGap())
+        );
+
+        cb_asignarsubespeciehabitat.setEnabled(false);
+
+        jLabel67.setText("Especie");
+
+        jLabel68.setText("SubEspecie");
+
+        jLabel69.setText("Habitat");
+
+        jb_asignarhabitat.setText("Asignar");
+
+        javax.swing.GroupLayout jd_asignarhabitatLayout = new javax.swing.GroupLayout(jd_asignarhabitat.getContentPane());
+        jd_asignarhabitat.getContentPane().setLayout(jd_asignarhabitatLayout);
+        jd_asignarhabitatLayout.setHorizontalGroup(
+            jd_asignarhabitatLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_asignarhabitatLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jd_asignarhabitatLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jd_asignarhabitatLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jd_asignarhabitatLayout.createSequentialGroup()
+                            .addComponent(jLabel67)
+                            .addGap(18, 18, 18))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_asignarhabitatLayout.createSequentialGroup()
+                            .addComponent(jLabel68)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
+                    .addGroup(jd_asignarhabitatLayout.createSequentialGroup()
+                        .addComponent(jLabel69)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                .addGroup(jd_asignarhabitatLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jd_asignarhabitatLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(cb_asignarespeciehabitat, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(cb_asignarsubespeciehabitat, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(cb_asignarhabitat, 0, 222, Short.MAX_VALUE))
+                    .addComponent(jb_asignarhabitat, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(69, Short.MAX_VALUE))
+        );
+        jd_asignarhabitatLayout.setVerticalGroup(
+            jd_asignarhabitatLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_asignarhabitatLayout.createSequentialGroup()
+                .addGap(51, 51, 51)
+                .addGroup(jd_asignarhabitatLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cb_asignarespeciehabitat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel67))
+                .addGap(34, 34, 34)
+                .addGroup(jd_asignarhabitatLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cb_asignarsubespeciehabitat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel68))
+                .addGap(36, 36, 36)
+                .addGroup(jd_asignarhabitatLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cb_asignarhabitat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel69))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
+                .addComponent(jb_asignarhabitat)
+                .addGap(27, 27, 27))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -3457,6 +3554,7 @@ public class ParteMario extends javax.swing.JFrame {
         if (doc2 == null) {
             doc.append("CodigoEspecie", Integer.parseInt(this.tf_agregarEspecie_codEspecie.getText()));
             doc.append("NombreEspecie", this.tf_agregarEspecie_nombreEspecie.getText());
+            doc.append("Cuidador", this.cb_asignarCuidador1.getSelectedItem().toString());
             db.getCollection("Especie").insertOne(doc);
             JOptionPane.showMessageDialog(this.jd_animales, "Agregado con Exito");
             this.tf_agregarEspecie_codEspecie.setText("");
@@ -3489,6 +3587,7 @@ public class ParteMario extends javax.swing.JFrame {
             doc.append("CodigoEspecie", Integer.parseInt(this.cb_agregarEspecie_codEspecie.getSelectedItem().toString()));
             doc.append("CodigoSubEspecie", Integer.parseInt(this.tf_agregarEspecie_codSubEspecie.getText()));
             doc.append("NombreSubEspecie", this.tf_agregarEspecie_nombreSubEspecie.getText());
+            doc.append("Cuidador", this.cb_asignarcuidador2.getSelectedItem().toString());
             db.getCollection("SubEspecie").insertOne(doc);
             JOptionPane.showMessageDialog(this.jd_animales, "Agregado con Exito");
             this.tf_agregarEspecie_codSubEspecie.setText("");
@@ -3512,6 +3611,22 @@ public class ParteMario extends javax.swing.JFrame {
                 modelo.addElement(document.get("CodigoEspecie"));
             }
         });
+        cb_asignarCuidador1.removeAllItems();
+        cb_asignarcuidador2.removeAllItems();
+        ComboBoxModel model2 = this.cb_asignarCuidador1.getModel();
+        FindIterable<Document> iterDoc2 = db.getCollection("Cuidadores").find();
+        int j = 1;
+        for (Document doc : iterDoc2) {
+            this.cb_asignarCuidador1.addItem(doc.get("CodigoEmpleado").toString());
+            j++;
+        }
+        ComboBoxModel model3 = this.cb_asignarcuidador2.getModel();
+        FindIterable<Document> iterDoc3 = db.getCollection("Cuidadores").find();
+        int k = 1;
+        for (Document doc : iterDoc3) {
+            this.cb_asignarcuidador2.addItem(doc.get("CodigoEmpleado").toString());
+            k++;
+        }
         this.cb_agregarEspecie_codEspecie.setModel(modelo);
     }//GEN-LAST:event_jPanel24ComponentShown
 
@@ -3798,6 +3913,11 @@ public class ParteMario extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cb_agregarEspecie_codEspecie;
     private javax.swing.JComboBox<String> cb_animal;
     private javax.swing.JComboBox<String> cb_animales;
+    private javax.swing.JComboBox<String> cb_asignarCuidador1;
+    private javax.swing.JComboBox<String> cb_asignarcuidador2;
+    private javax.swing.JComboBox<String> cb_asignarespeciehabitat;
+    private javax.swing.JComboBox<String> cb_asignarhabitat;
+    private javax.swing.JComboBox<String> cb_asignarsubespeciehabitat;
     private javax.swing.JComboBox<String> cb_buscarAnimal1_especie;
     private javax.swing.JComboBox<String> cb_buscarAnimal1_subespecie;
     private javax.swing.JComboBox<String> cb_buscarAnimal_continente;
@@ -3883,6 +4003,11 @@ public class ParteMario extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel62;
     private javax.swing.JLabel jLabel63;
     private javax.swing.JLabel jLabel64;
+    private javax.swing.JLabel jLabel65;
+    private javax.swing.JLabel jLabel66;
+    private javax.swing.JLabel jLabel67;
+    private javax.swing.JLabel jLabel68;
+    private javax.swing.JLabel jLabel69;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
@@ -3927,6 +4052,7 @@ public class ParteMario extends javax.swing.JFrame {
     private javax.swing.JTabbedPane jTabbedPane2;
     private javax.swing.JTabbedPane jTabbedPane3;
     private javax.swing.JTabbedPane jTabbedPane4;
+    private javax.swing.JButton jb_AsignarHabitat;
     private javax.swing.JButton jb_BuscarDependencia;
     private javax.swing.JButton jb_CrearDependencia;
     private javax.swing.JButton jb_CrearZona;
@@ -3942,6 +4068,7 @@ public class ParteMario extends javax.swing.JFrame {
     private javax.swing.JButton jb_VtcrearDependenica;
     private javax.swing.JButton jb_asignacionpersonal;
     private javax.swing.JButton jb_asignamantenimiento;
+    private javax.swing.JButton jb_asignarhabitat;
     private javax.swing.JButton jb_buscarModificarZ;
     private javax.swing.JButton jb_buscarhabitat;
     private javax.swing.JButton jb_crearZ;
@@ -3957,6 +4084,7 @@ public class ParteMario extends javax.swing.JFrame {
     private javax.swing.JButton jd_VentanaCrearHbitat;
     private javax.swing.JDialog jd_Zona;
     private javax.swing.JDialog jd_animales;
+    private javax.swing.JDialog jd_asignarhabitat;
     private javax.swing.JDialog jd_crearzona;
     private javax.swing.JDialog jd_eliminarDependencia;
     private javax.swing.JDialog jd_eliminarZona;
