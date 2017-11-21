@@ -520,6 +520,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Asignar Habitat"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jb_AsignarHabitatActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
@@ -3731,6 +3734,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Asignar"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jb_asignarhabitatActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

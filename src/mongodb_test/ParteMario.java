@@ -673,6 +673,11 @@ public class ParteMario extends javax.swing.JFrame {
         });
 
         jb_AsignarHabitat.setText("Asignar Habitat");
+        jb_AsignarHabitat.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jb_AsignarHabitatActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -2565,6 +2570,11 @@ public class ParteMario extends javax.swing.JFrame {
         jLabel69.setText("Habitat");
 
         jb_asignarhabitat.setText("Asignar");
+        jb_asignarhabitat.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jb_asignarhabitatActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jd_asignarhabitatLayout = new javax.swing.GroupLayout(jd_asignarhabitat.getContentPane());
         jd_asignarhabitat.getContentPane().setLayout(jd_asignarhabitatLayout);
@@ -3199,7 +3209,7 @@ public class ParteMario extends javax.swing.JFrame {
             cb_dependenciaasignacion.setEnabled(false);
             cb_habitatasignacion.removeAllItems();
             cb_habitatasignacion.setEnabled(false);
-        } else if(cb_zonaasignacion.getSelectedIndex() >0 ){
+        } else if (cb_zonaasignacion.getSelectedIndex() > 0) {
             cb_dependenciaasignacion.removeAllItems();
             cb_habitatasignacion.removeAllItems();
             this.cb_dependenciaasignacion.addItem("Ninguna");
@@ -3276,7 +3286,7 @@ public class ParteMario extends javax.swing.JFrame {
         cb_zonaasignacion.removeAllItems();
         jb_asignamantenimiento.setEnabled(false);
         jd_ventanaasignacion.setVisible(false);
-        
+
     }//GEN-LAST:event_jb_asignamantenimientoActionPerformed
 
     private void jtab_empleadosStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jtab_empleadosStateChanged
@@ -3839,7 +3849,18 @@ public class ParteMario extends javax.swing.JFrame {
     private void bt_entrarAnimalesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_entrarAnimalesActionPerformed
         dialog(this.jd_animales);
     }//GEN-LAST:event_bt_entrarAnimalesActionPerformed
-    
+
+    private void jb_asignarhabitatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_asignarhabitatActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jb_asignarhabitatActionPerformed
+
+    private void jb_AsignarHabitatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_AsignarHabitatActionPerformed
+        this.jd_asignarhabitat.pack();
+        this.jd_asignarhabitat.setResizable(false);
+        this.jd_asignarhabitat.setLocationRelativeTo(this);
+        this.jd_asignarhabitat.setVisible(true);
+    }//GEN-LAST:event_jb_AsignarHabitatActionPerformed
+
     public void dialog(JDialog a) {
         a.setModal(true);
         a.pack();
